@@ -15,28 +15,6 @@
 
 import UIKit
 
-/// `PrebidHost` represents various Prebid server hosts used for ad bidding.
-@objc public enum PrebidHost: Int {
-    
-    /// URL [https://ib.adnxs.com/openrtb2/prebid](URL)
-    case Appnexus
-    
-    /// URL [https://prebid-server.rubiconproject.com/openrtb2/auction](URL)
-    case Rubicon
-    
-    /// Custom Prebid server URL. The URL for this case should be set separately.
-    case Custom
-
-    /// Returns the URL associated with the `PrebidHost` enum case.
-    func name () -> String {
-        switch self {
-        case .Appnexus: return "https://ib.adnxs.com/openrtb2/prebid"
-        case .Rubicon: return "https://prebid-server.rubiconproject.com/openrtb2/auction"
-        case .Custom: return ""
-        }
-    }
-}
-
 /// A singleton class that manages the Prebid server URL, including a custom URL.
 @objcMembers
 public class Host: NSObject {
@@ -57,17 +35,11 @@ public class Host: NSObject {
     }
 
     /// This function retrieves the prebid server URL for the selected host
-    public func getHostURL(host: PrebidHost) throws -> String {
-        if (host == PrebidHost.Custom) {
-
-            if let customHostURL = customHostURL {
-                return customHostURL.absoluteString
-            } else {
-                throw ErrorCode.prebidServerURLInvalid("")
-            }
+    public func getHostURL() throws -> String {
+        guard let customHostURL = customHostURL else {
+            throw ErrorCode.prebidServerURLInvalid("")
         }
-
-        return host.name()
+        return customHostURL.absoluteString
     }
 
     /// This function verifies if the prebid server URL is in the url format

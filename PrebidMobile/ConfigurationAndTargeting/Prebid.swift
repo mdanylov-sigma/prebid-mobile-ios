@@ -32,12 +32,6 @@ public class Prebid: NSObject {
     
     // MARK: - Public Properties (SDK)
     
-    /// The name of the bidder for AppNexus.
-    public static let bidderNameAppNexus = "appnexus"
-    
-    /// The name of the bidder for Rubicon Project.
-    public static let bidderNameRubiconProject = "rubicon"
-    
     /// Indicates whether the timeout value has been updated.
     public var timeoutUpdated: Bool = false
     
@@ -86,14 +80,6 @@ public class Prebid: NSObject {
     }
     
     // MARK: - Public Properties (Prebid)
-    
-    /// The host for the Prebid Server.
-    public var prebidServerHost: PrebidHost = .Custom {
-        didSet {
-            timeoutMillisDynamic = NSNumber(value: timeoutMillis)
-            timeoutUpdated = false
-        }
-    }
     
     /// Custom status endpoint for the Prebid Server.
     public var customStatusEndpoint: String? {
@@ -159,7 +145,9 @@ public class Prebid: NSObject {
     /// - Parameter url: The custom Prebid Server URL.
     /// - Throws: An error if setting the custom host URL fails.
     public func setCustomPrebidServer(url: String) throws {
-        prebidServerHost = .Custom
+        timeoutMillisDynamic = NSNumber(value: timeoutMillis)
+        timeoutUpdated = false
+
         try Host.shared.setCustomHostURL(url)
     }
     
@@ -211,7 +199,6 @@ public class Prebid: NSObject {
     ///
     /// Checks the status of Prebid Server. The `customStatusEndpoint` property is used as server status endpoint.
     /// If `customStatusEndpoint` property is not provided, the SDK will use default endpoint - `host` + `/status`.
-    /// The `host` value is obtained from `Prebid.shared.prebidServerHost`.
     ///
     /// Checks the version of GMA SDK. If the version is not supported - logs warning.
     ///
@@ -229,7 +216,6 @@ public class Prebid: NSObject {
     ///
     /// Checks the status of Prebid Server. The `customStatusEndpoint` property is used as server status endpoint.
     /// If `customStatusEndpoint` property is not provided, the SDK will use default endpoint - `host` + `/status`.
-    /// The `host` value is obtained from `Prebid.shared.prebidServerHost`.
     ///
     /// Checks the version of GMA SDK. If the version is not supported - logs warning.
     ///
@@ -246,7 +232,6 @@ public class Prebid: NSObject {
     ///
     /// Checks the status of Prebid Server. The `customStatusEndpoint` property is used as server status endpoint.
     /// If `customStatusEndpoint` property is not provided, the SDK will use default endpoint - `host` + `/status`.
-    /// The `host` value is obtained from `Prebid.shared.prebidServerHost`.
     ///
     /// Use this SDK initializer if you're using PrebidMobile without GMA SDK.
     /// - Parameters:

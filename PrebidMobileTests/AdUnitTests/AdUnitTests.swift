@@ -154,7 +154,10 @@ class AdUnitTests: XCTestCase {
         exception.expectedFulfillmentCount = expectedFetchDemandCount
         exception.assertForOverFulfill = false
         
-        Prebid.shared.prebidServerHost = PrebidHost.Rubicon
+        XCTAssertNoThrow(
+            try Prebid.shared.setCustomPrebidServer(url: Prebid.rubiconServerURL)
+        )
+        
         Prebid.shared.prebidServerAccountId = "1001"
         let adUnit = BannerAdUnit(configId: "1001-1", size: CGSize(width: 300, height: 250))
         adUnit.setAutoRefreshMillis(time: 800.0)
@@ -184,7 +187,9 @@ class AdUnitTests: XCTestCase {
         exception.expectedFulfillmentCount = expectedFetchDemandCount
         exception.assertForOverFulfill = false
         
-        Prebid.shared.prebidServerHost = PrebidHost.Rubicon
+        XCTAssertNoThrow(
+            try Prebid.shared.setCustomPrebidServer(url: Prebid.rubiconServerURL)
+        )
         Prebid.shared.prebidServerAccountId = "1001"
         let adUnit = BannerAdUnit(configId: "1001-1", size: CGSize(width: 300, height: 250))
         adUnit.setAutoRefreshMillis(time: 800.0)
@@ -218,7 +223,10 @@ class AdUnitTests: XCTestCase {
         exception.expectedFulfillmentCount = expectedFetchDemandCount
         exception.assertForOverFulfill = false
         
-        Prebid.shared.prebidServerHost = PrebidHost.Rubicon
+        XCTAssertNoThrow(
+            try Prebid.shared.setCustomPrebidServer(url: Prebid.rubiconServerURL)
+        )
+
         Prebid.shared.prebidServerAccountId = "1001"
         let adUnit = BannerAdUnit(configId: "1001-1", size: CGSize(width: 300, height: 250))
         adUnit.setAutoRefreshMillis(time: 800.0)

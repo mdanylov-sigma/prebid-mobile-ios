@@ -21,13 +21,16 @@ extension Prebid {
     static let devintAccountID = "4f112bad-8cd2-4c43-97d0-1ab72fd442ed"
     static let prodAccountID = "0689a263-318d-448b-a3d4-b02e8a709d9d"
     
+    static let rubiconServerURL = "https://prebid-server.rubiconproject.com/openrtb2/auction"
+    static let bidderNameAppNexus = "appnexus"
+    static let bidderNameRubiconProject = "rubicon"
+    
     static var mock: Prebid {
         Prebid.reset()
         return Prebid.shared
     }
     
     static func reset() {
-        Prebid.shared.prebidServerHost = PrebidHost.Custom
         Prebid.shared.prebidServerAccountId = ""
         Host.shared.reset()
         

@@ -268,8 +268,8 @@ limitations under the License.
 
 - (void)testAccessControlList {
     //given
-    NSString *bidderNameRubicon = Prebid.bidderNameRubiconProject;
-    NSString *bidderNameAppNexus = Prebid.bidderNameAppNexus;
+    NSString *bidderNameRubicon = @"rubicon";
+    NSString *bidderNameAppNexus = @"appnexus";
     
     //when
     [Targeting.shared addBidderToAccessControlList:bidderNameRubicon];

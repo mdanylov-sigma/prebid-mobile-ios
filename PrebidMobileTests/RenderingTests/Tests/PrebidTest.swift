@@ -114,36 +114,8 @@ class PrebidTest: XCTestCase {
         checkInitialValue(sdkConfiguration: firstConfig)
     }
     
-    func testPrebidHost() {
-        let sdkConfig = Prebid.shared
-        XCTAssertEqual(sdkConfig.prebidServerHost, .Custom)
-        
-        sdkConfig.prebidServerHost = .Appnexus
-        XCTAssertEqual(try! Host.shared.getHostURL(host:sdkConfig.prebidServerHost), "https://ib.adnxs.com/openrtb2/prebid")
-        
-        let _ = try! Prebid.shared.setCustomPrebidServer(url: "https://10.0.2.2:8000/openrtb2/auction")
-        XCTAssertEqual(sdkConfig.prebidServerHost, .Custom)
-    }
-    
     func testServerHostCustomInvalid() throws {
         XCTAssertThrowsError(try Prebid.shared.setCustomPrebidServer(url: "wrong url"))
-    }
-    
-    func testServerHost() {
-        //given
-        let case1 = PrebidHost.Appnexus
-        let case2 = PrebidHost.Rubicon
-        
-        //when
-        Prebid.shared.prebidServerHost = case1
-        let result1 = Prebid.shared.prebidServerHost
-        
-        Prebid.shared.prebidServerHost = case2
-        let result2 = Prebid.shared.prebidServerHost
-        
-        //then
-        XCTAssertEqual(case1, result1)
-        XCTAssertEqual(case2, result2)
     }
     
     func testServerHostCustom() throws {
@@ -154,12 +126,10 @@ class PrebidTest: XCTestCase {
         //We can not use setCustomPrebidServer() because it uses UIApplication.shared.canOpenURL
 //        try! Prebid.shared.setCustomPrebidServer(url: customHost)
         
-        Prebid.shared.prebidServerHost = PrebidHost.Custom
         try Host.shared.setCustomHostURL(customHost)
         
         //then
-        XCTAssertEqual(PrebidHost.Custom, Prebid.shared.prebidServerHost)
-        let getHostURLResult = try Host.shared.getHostURL(host: .Custom)
+        let getHostURLResult = try Host.shared.getHostURL()
         XCTAssertEqual(customHost, getHostURLResult)
     }
     
@@ -281,11 +251,6 @@ class PrebidTest: XCTestCase {
         XCTAssertEqual(timeoutMillis, Prebid.shared.timeoutMillis)
     }
     
-    func testBidderName() {
-        XCTAssertEqual("appnexus", Prebid.bidderNameAppNexus)
-        XCTAssertEqual("rubicon", Prebid.bidderNameRubiconProject)
-    }
-    
     func testPbsDebug() {
         //given
         let pbsDebug = true
@@ -352,6 +317,5 @@ class PrebidTest: XCTestCase {
         // Prebid-specific
         
         XCTAssertEqual(sdkConfiguration.prebidServerAccountId, "")
-        XCTAssertEqual(sdkConfiguration.prebidServerHost, .Custom)
     }
 }
