@@ -8,7 +8,7 @@
 **/example/Swift/PrebidDemo/Pods/
 **/example/ObjectiveC/PrebidDemo/Pods/
 **/screenshot*
-PrebidMobile.framework
+# PrebidMobile.framework
 
 ########################################################################################
 # macOS.gitignore
@@ -102,8 +102,8 @@ xcuserdata/
 ## Obj-C/Swift specific
 *.hmap
 #*.ipa
-*.dSYM.zip
-*.dSYM
+# *.dSYM.zip
+# *.dSYM
 
 # CocoaPods
 #
