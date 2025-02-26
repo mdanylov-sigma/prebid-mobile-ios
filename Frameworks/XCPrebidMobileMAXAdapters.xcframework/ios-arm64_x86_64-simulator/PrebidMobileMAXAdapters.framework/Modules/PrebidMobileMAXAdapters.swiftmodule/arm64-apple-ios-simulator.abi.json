@@ -1,0 +1,4203 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "PrebidMobileMAXAdapters",
+    "printedName": "PrebidMobileMAXAdapters",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PrebidMobile",
+        "printedName": "PrebidMobile",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "Import",
+        "name": "AppLovinSDK",
+        "printedName": "AppLovinSDK",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MAXMediationNativeUtils",
+        "printedName": "MAXMediationNativeUtils",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "nativeAdLoader",
+            "printedName": "nativeAdLoader",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MANativeAdLoader",
+                "printedName": "AppLovinSDK.MANativeAdLoader",
+                "usr": "c:objc(cs)MANativeAdLoader"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationNativeUtils(py)nativeAdLoader",
+            "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationNativeUtilsC14nativeAdLoaderSo08MANativehI0Cvp",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MANativeAdLoader",
+                    "printedName": "AppLovinSDK.MANativeAdLoader",
+                    "usr": "c:objc(cs)MANativeAdLoader"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationNativeUtils(im)nativeAdLoader",
+                "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationNativeUtilsC14nativeAdLoaderSo08MANativehI0Cvg",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MANativeAdLoader",
+                    "printedName": "AppLovinSDK.MANativeAdLoader",
+                    "usr": "c:objc(cs)MANativeAdLoader"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationNativeUtils(im)setNativeAdLoader:",
+                "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationNativeUtilsC14nativeAdLoaderSo08MANativehI0Cvs",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters23MAXMediationNativeUtilsC14nativeAdLoaderSo08MANativehI0CvM",
+                "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationNativeUtilsC14nativeAdLoaderSo08MANativehI0CvM",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(nativeAdLoader:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MAXMediationNativeUtils",
+                "printedName": "PrebidMobileMAXAdapters.MAXMediationNativeUtils",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationNativeUtils"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MANativeAdLoader",
+                "printedName": "AppLovinSDK.MANativeAdLoader",
+                "usr": "c:objc(cs)MANativeAdLoader"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationNativeUtils(im)initWithNativeAdLoader:",
+            "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationNativeUtilsC14nativeAdLoaderACSo08MANativehI0C_tcfc",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "setUpAdObject",
+            "printedName": "setUpAdObject(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationNativeUtils(im)setUpAdObjectWith:",
+            "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationNativeUtilsC13setUpAdObject4withSbSDySSypG_tF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "setUpAdObjectWith:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "cleanUpAdObject",
+            "printedName": "cleanUpAdObject()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationNativeUtils(im)cleanUpAdObject",
+            "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationNativeUtilsC15cleanUpAdObjectyyF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "cleanUpAdObject",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getAdView",
+            "printedName": "getAdView()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIView",
+                    "printedName": "UIKit.UIView",
+                    "usr": "c:objc(cs)UIView"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationNativeUtils(im)getAdView",
+            "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationNativeUtilsC9getAdViewSo6UIViewCSgyF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "getAdView",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MAXMediationNativeUtils",
+                "printedName": "PrebidMobileMAXAdapters.MAXMediationNativeUtils",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationNativeUtils"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationNativeUtils(im)init",
+            "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationNativeUtilsCACycfc",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationNativeUtils",
+        "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationNativeUtilsC",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "PrebidMediationDelegate",
+            "printedName": "PrebidMediationDelegate",
+            "usr": "c:@M@PrebidMobile@objc(pl)PrebidMediationDelegate",
+            "mangledName": "$s12PrebidMobile0A17MediationDelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PrebidMobile",
+        "printedName": "PrebidMobile",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AppLovinSDK",
+        "printedName": "AppLovinSDK",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PrebidMobile",
+        "printedName": "PrebidMobile",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "Import",
+        "name": "AppLovinSDK",
+        "printedName": "AppLovinSDK",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "Var",
+        "name": "MAXCustomParametersKey",
+        "printedName": "MAXCustomParametersKey",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "String",
+            "printedName": "Swift.String",
+            "usr": "s:SS"
+          }
+        ],
+        "declKind": "Var",
+        "usr": "s:23PrebidMobileMAXAdapters22MAXCustomParametersKeySSvp",
+        "mangledName": "$s23PrebidMobileMAXAdapters22MAXCustomParametersKeySSvp",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "HasInitialValue",
+          "HasStorage",
+          "AccessControl"
+        ],
+        "isLet": true,
+        "hasStorage": true,
+        "accessors": [
+          {
+            "kind": "Accessor",
+            "name": "Get",
+            "printedName": "Get()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Accessor",
+            "usr": "s:23PrebidMobileMAXAdapters22MAXCustomParametersKeySSvg",
+            "mangledName": "$s23PrebidMobileMAXAdapters22MAXCustomParametersKeySSvg",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "implicit": true,
+            "accessorKind": "get"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PrebidMAXMediationAdapter",
+        "printedName": "PrebidMAXMediationAdapter",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "bannerDelegate",
+            "printedName": "bannerDelegate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "(any AppLovinSDK.MAAdViewAdapterDelegate)?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14bannerDelegateSo08MAAdVieweG0_pSgvp",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14bannerDelegateSo08MAAdVieweG0_pSgvp",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "ReferenceOwnership",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "ownership": 1,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AppLovinSDK.MAAdViewAdapterDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MAAdViewAdapterDelegate",
+                        "printedName": "any AppLovinSDK.MAAdViewAdapterDelegate",
+                        "usr": "c:objc(pl)MAAdViewAdapterDelegate"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14bannerDelegateSo08MAAdVieweG0_pSgvg",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14bannerDelegateSo08MAAdVieweG0_pSgvg",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AppLovinSDK.MAAdViewAdapterDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MAAdViewAdapterDelegate",
+                        "printedName": "any AppLovinSDK.MAAdViewAdapterDelegate",
+                        "usr": "c:objc(pl)MAAdViewAdapterDelegate"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14bannerDelegateSo08MAAdVieweG0_pSgvs",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14bannerDelegateSo08MAAdVieweG0_pSgvs",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14bannerDelegateSo08MAAdVieweG0_pSgvM",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14bannerDelegateSo08MAAdVieweG0_pSgvM",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "displayView",
+            "printedName": "displayView",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PrebidMobile.PBMDisplayView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PBMDisplayView",
+                    "printedName": "PrebidMobile.PBMDisplayView",
+                    "usr": "c:objc(cs)PBMDisplayView"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC11displayViewSo010PBMDisplayG0CSgvp",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC11displayViewSo010PBMDisplayG0CSgvp",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "PrebidMobile.PBMDisplayView?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PBMDisplayView",
+                        "printedName": "PrebidMobile.PBMDisplayView",
+                        "usr": "c:objc(cs)PBMDisplayView"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC11displayViewSo010PBMDisplayG0CSgvg",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC11displayViewSo010PBMDisplayG0CSgvg",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "PrebidMobile.PBMDisplayView?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "PBMDisplayView",
+                        "printedName": "PrebidMobile.PBMDisplayView",
+                        "usr": "c:objc(cs)PBMDisplayView"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC11displayViewSo010PBMDisplayG0CSgvs",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC11displayViewSo010PBMDisplayG0CSgvs",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC11displayViewSo010PBMDisplayG0CSgvM",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC11displayViewSo010PBMDisplayG0CSgvM",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "interstitialDelegate",
+            "printedName": "interstitialDelegate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "(any AppLovinSDK.MAInterstitialAdapterDelegate)?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC20interstitialDelegateSo014MAInterstitialeG0_pSgvp",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC20interstitialDelegateSo014MAInterstitialeG0_pSgvp",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "ReferenceOwnership",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "ownership": 1,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AppLovinSDK.MAInterstitialAdapterDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MAInterstitialAdapterDelegate",
+                        "printedName": "any AppLovinSDK.MAInterstitialAdapterDelegate",
+                        "usr": "c:objc(pl)MAInterstitialAdapterDelegate"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC20interstitialDelegateSo014MAInterstitialeG0_pSgvg",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC20interstitialDelegateSo014MAInterstitialeG0_pSgvg",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AppLovinSDK.MAInterstitialAdapterDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MAInterstitialAdapterDelegate",
+                        "printedName": "any AppLovinSDK.MAInterstitialAdapterDelegate",
+                        "usr": "c:objc(pl)MAInterstitialAdapterDelegate"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC20interstitialDelegateSo014MAInterstitialeG0_pSgvs",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC20interstitialDelegateSo014MAInterstitialeG0_pSgvs",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC20interstitialDelegateSo014MAInterstitialeG0_pSgvM",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC20interstitialDelegateSo014MAInterstitialeG0_pSgvM",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "interstitialController",
+            "printedName": "interstitialController",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "PrebidMobile.InterstitialController?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InterstitialController",
+                    "printedName": "PrebidMobile.InterstitialController",
+                    "usr": "c:@M@PrebidMobile@objc(cs)InterstitialController"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC22interstitialController0aB0012InterstitialG0CSgvp",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC22interstitialController0aB0012InterstitialG0CSgvp",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "PrebidMobile.InterstitialController?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InterstitialController",
+                        "printedName": "PrebidMobile.InterstitialController",
+                        "usr": "c:@M@PrebidMobile@objc(cs)InterstitialController"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC22interstitialController0aB0012InterstitialG0CSgvg",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC22interstitialController0aB0012InterstitialG0CSgvg",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "PrebidMobile.InterstitialController?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InterstitialController",
+                        "printedName": "PrebidMobile.InterstitialController",
+                        "usr": "c:@M@PrebidMobile@objc(cs)InterstitialController"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC22interstitialController0aB0012InterstitialG0CSgvs",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC22interstitialController0aB0012InterstitialG0CSgvs",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC22interstitialController0aB0012InterstitialG0CSgvM",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC22interstitialController0aB0012InterstitialG0CSgvM",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "interstitialAdAvailable",
+            "printedName": "interstitialAdAvailable",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC23interstitialAdAvailableSbvp",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC23interstitialAdAvailableSbvp",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC23interstitialAdAvailableSbvg",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC23interstitialAdAvailableSbvg",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC23interstitialAdAvailableSbvs",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC23interstitialAdAvailableSbvs",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC23interstitialAdAvailableSbvM",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC23interstitialAdAvailableSbvM",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "rewardedDelegate",
+            "printedName": "rewardedDelegate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "(any AppLovinSDK.MARewardedAdapterDelegate)?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC16rewardedDelegateSo010MARewardedeG0_pSgvp",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC16rewardedDelegateSo010MARewardedeG0_pSgvp",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "ReferenceOwnership",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "ownership": 1,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AppLovinSDK.MARewardedAdapterDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MARewardedAdapterDelegate",
+                        "printedName": "any AppLovinSDK.MARewardedAdapterDelegate",
+                        "usr": "c:objc(pl)MARewardedAdapterDelegate"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC16rewardedDelegateSo010MARewardedeG0_pSgvg",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC16rewardedDelegateSo010MARewardedeG0_pSgvg",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AppLovinSDK.MARewardedAdapterDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MARewardedAdapterDelegate",
+                        "printedName": "any AppLovinSDK.MARewardedAdapterDelegate",
+                        "usr": "c:objc(pl)MARewardedAdapterDelegate"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC16rewardedDelegateSo010MARewardedeG0_pSgvs",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC16rewardedDelegateSo010MARewardedeG0_pSgvs",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC16rewardedDelegateSo010MARewardedeG0_pSgvM",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC16rewardedDelegateSo010MARewardedeG0_pSgvM",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "nativeDelegate",
+            "printedName": "nativeDelegate",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "(any AppLovinSDK.MANativeAdAdapterDelegate)?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14nativeDelegateSo010MANativeAdeG0_pSgvp",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14nativeDelegateSo010MANativeAdeG0_pSgvp",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "ReferenceOwnership",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "ownership": 1,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AppLovinSDK.MANativeAdAdapterDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MANativeAdAdapterDelegate",
+                        "printedName": "any AppLovinSDK.MANativeAdAdapterDelegate",
+                        "usr": "c:objc(pl)MANativeAdAdapterDelegate"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14nativeDelegateSo010MANativeAdeG0_pSgvg",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14nativeDelegateSo010MANativeAdeG0_pSgvg",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any AppLovinSDK.MANativeAdAdapterDelegate)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MANativeAdAdapterDelegate",
+                        "printedName": "any AppLovinSDK.MANativeAdAdapterDelegate",
+                        "usr": "c:objc(pl)MANativeAdAdapterDelegate"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14nativeDelegateSo010MANativeAdeG0_pSgvs",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14nativeDelegateSo010MANativeAdeG0_pSgvs",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14nativeDelegateSo010MANativeAdeG0_pSgvM",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14nativeDelegateSo010MANativeAdeG0_pSgvM",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "initialize",
+            "printedName": "initialize(with:completionHandler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAAdapterInitializationParameters",
+                "printedName": "any AppLovinSDK.MAAdapterInitializationParameters",
+                "usr": "c:objc(pl)MAAdapterInitializationParameters"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppLovinSDK.MAAdapterInitializationStatus, Swift.String?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(AppLovinSDK.MAAdapterInitializationStatus, Swift.String?)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MAAdapterInitializationStatus",
+                        "printedName": "AppLovinSDK.MAAdapterInitializationStatus",
+                        "usr": "c:@E@MAAdapterInitializationStatus"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.String?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)initializeWithParameters:completionHandler:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC10initialize4with17completionHandlerySo33MAAdapterInitializationParameters_p_ySo0jK6StatusV_SSSgtctF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "overriding": true,
+            "objc_name": "initializeWithParameters:completionHandler:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "sdkVersion",
+            "printedName": "sdkVersion",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(py)SDKVersion",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC10sdkVersionSSvp",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "overriding": true,
+            "objc_name": "SDKVersion",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)SDKVersion",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC10sdkVersionSSvg",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "overriding": true,
+                "objc_name": "SDKVersion",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "adapterVersion",
+            "printedName": "adapterVersion",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(py)adapterVersion",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14adapterVersionSSvp",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "overriding": true,
+            "objc_name": "adapterVersion",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)adapterVersion",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14adapterVersionSSvg",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "overriding": true,
+                "objc_name": "adapterVersion",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "destroy",
+            "printedName": "destroy()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)destroy",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC7destroyyyF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "overriding": true,
+            "objc_name": "destroy",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(sdk:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PrebidMAXMediationAdapter",
+                "printedName": "PrebidMobileMAXAdapters.PrebidMAXMediationAdapter",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ALSdk",
+                "printedName": "AppLovinSDK.ALSdk",
+                "usr": "c:objc(cs)ALSdk"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)initWithSdk:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC3sdkACSo5ALSdkC_tcfc",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithSdk:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "loadInterstitialAd",
+            "printedName": "loadInterstitialAd(for:andNotify:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAAdapterResponseParameters",
+                "printedName": "any AppLovinSDK.MAAdapterResponseParameters",
+                "usr": "c:objc(pl)MAAdapterResponseParameters"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAInterstitialAdapterDelegate",
+                "printedName": "any AppLovinSDK.MAInterstitialAdapterDelegate",
+                "usr": "c:objc(pl)MAInterstitialAdapterDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)loadInterstitialAdForParameters:andNotify:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC18loadInterstitialAd3for9andNotifyySo27MAAdapterResponseParameters_p_So014MAInterstitialE8Delegate_ptF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "loadInterstitialAdForParameters:andNotify:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "showInterstitialAd",
+            "printedName": "showInterstitialAd(for:andNotify:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAAdapterResponseParameters",
+                "printedName": "any AppLovinSDK.MAAdapterResponseParameters",
+                "usr": "c:objc(pl)MAAdapterResponseParameters"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAInterstitialAdapterDelegate",
+                "printedName": "any AppLovinSDK.MAInterstitialAdapterDelegate",
+                "usr": "c:objc(pl)MAInterstitialAdapterDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)showInterstitialAdForParameters:andNotify:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC18showInterstitialAd3for9andNotifyySo27MAAdapterResponseParameters_p_So014MAInterstitialE8Delegate_ptF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "showInterstitialAdForParameters:andNotify:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "loadRewardedAd",
+            "printedName": "loadRewardedAd(for:andNotify:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAAdapterResponseParameters",
+                "printedName": "any AppLovinSDK.MAAdapterResponseParameters",
+                "usr": "c:objc(pl)MAAdapterResponseParameters"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MARewardedAdapterDelegate",
+                "printedName": "any AppLovinSDK.MARewardedAdapterDelegate",
+                "usr": "c:objc(pl)MARewardedAdapterDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)loadRewardedAdForParameters:andNotify:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14loadRewardedAd3for9andNotifyySo27MAAdapterResponseParameters_p_So010MARewardedE8Delegate_ptF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "loadRewardedAdForParameters:andNotify:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "showRewardedAd",
+            "printedName": "showRewardedAd(for:andNotify:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAAdapterResponseParameters",
+                "printedName": "any AppLovinSDK.MAAdapterResponseParameters",
+                "usr": "c:objc(pl)MAAdapterResponseParameters"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MARewardedAdapterDelegate",
+                "printedName": "any AppLovinSDK.MARewardedAdapterDelegate",
+                "usr": "c:objc(pl)MARewardedAdapterDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)showRewardedAdForParameters:andNotify:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC14showRewardedAd3for9andNotifyySo27MAAdapterResponseParameters_p_So010MARewardedE8Delegate_ptF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "showRewardedAdForParameters:andNotify:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "interstitialControllerDidLoadAd",
+            "printedName": "interstitialControllerDidLoadAd(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PrebidMobileInterstitialControllerProtocol",
+                "printedName": "any PrebidMobile.PrebidMobileInterstitialControllerProtocol",
+                "usr": "c:@M@PrebidMobile@objc(pl)PrebidMobileInterstitialControllerProtocol"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)interstitialControllerDidLoadAd:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC31interstitialControllerDidLoadAdyy0aB00ab12InterstitialG8Protocol_pF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "interstitialControllerDidLoadAd:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "interstitialController",
+            "printedName": "interstitialController(_:didFailWithError:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PrebidMobileInterstitialControllerProtocol",
+                "printedName": "any PrebidMobile.PrebidMobileInterstitialControllerProtocol",
+                "usr": "c:@M@PrebidMobile@objc(pl)PrebidMobileInterstitialControllerProtocol"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Error",
+                "printedName": "any Swift.Error",
+                "usr": "s:s5ErrorP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)interstitialController:didFailWithError:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC22interstitialController_16didFailWithErrory0aB00ab12InterstitialG8Protocol_p_s0K0_ptF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "interstitialController:didFailWithError:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "interstitialControllerDidClickAd",
+            "printedName": "interstitialControllerDidClickAd(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PrebidMobileInterstitialControllerProtocol",
+                "printedName": "any PrebidMobile.PrebidMobileInterstitialControllerProtocol",
+                "usr": "c:@M@PrebidMobile@objc(pl)PrebidMobileInterstitialControllerProtocol"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)interstitialControllerDidClickAd:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC32interstitialControllerDidClickAdyy0aB00ab12InterstitialG8Protocol_pF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "interstitialControllerDidClickAd:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "interstitialControllerDidCloseAd",
+            "printedName": "interstitialControllerDidCloseAd(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PrebidMobileInterstitialControllerProtocol",
+                "printedName": "any PrebidMobile.PrebidMobileInterstitialControllerProtocol",
+                "usr": "c:@M@PrebidMobile@objc(pl)PrebidMobileInterstitialControllerProtocol"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)interstitialControllerDidCloseAd:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC32interstitialControllerDidCloseAdyy0aB00ab12InterstitialG8Protocol_pF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "interstitialControllerDidCloseAd:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "interstitialControllerDidDisplay",
+            "printedName": "interstitialControllerDidDisplay(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PrebidMobileInterstitialControllerProtocol",
+                "printedName": "any PrebidMobile.PrebidMobileInterstitialControllerProtocol",
+                "usr": "c:@M@PrebidMobile@objc(pl)PrebidMobileInterstitialControllerProtocol"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)interstitialControllerDidDisplay:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC32interstitialControllerDidDisplayyy0aB00ab12InterstitialG8Protocol_pF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "interstitialControllerDidDisplay:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "interstitialControllerDidComplete",
+            "printedName": "interstitialControllerDidComplete(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PrebidMobileInterstitialControllerProtocol",
+                "printedName": "any PrebidMobile.PrebidMobileInterstitialControllerProtocol",
+                "usr": "c:@M@PrebidMobile@objc(pl)PrebidMobileInterstitialControllerProtocol"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)interstitialControllerDidComplete:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC33interstitialControllerDidCompleteyy0aB00ab12InterstitialG8Protocol_pF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "interstitialControllerDidComplete:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "viewControllerForModalPresentation",
+            "printedName": "viewControllerForModalPresentation(fromInterstitialController:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIViewController?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIViewController",
+                    "printedName": "UIKit.UIViewController",
+                    "usr": "c:objc(cs)UIViewController"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PrebidMobileInterstitialControllerProtocol",
+                "printedName": "any PrebidMobile.PrebidMobileInterstitialControllerProtocol",
+                "usr": "c:@M@PrebidMobile@objc(pl)PrebidMobileInterstitialControllerProtocol"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)viewControllerForModalPresentationFromInterstitialController:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC34viewControllerForModalPresentation016fromInterstitialG0So06UIViewG0CSg0aB00ablG8Protocol_p_tF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "viewControllerForModalPresentationFromInterstitialController:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackImpression",
+            "printedName": "trackImpression(forInterstitialController:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PrebidMobileInterstitialControllerProtocol",
+                "printedName": "any PrebidMobile.PrebidMobileInterstitialControllerProtocol",
+                "usr": "c:@M@PrebidMobile@objc(pl)PrebidMobileInterstitialControllerProtocol"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)trackImpressionForInterstitialController:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC15trackImpression25forInterstitialControllery0aB00abiJ8Protocol_p_tF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "trackImpressionForInterstitialController:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "interstitialControllerDidLeaveApp",
+            "printedName": "interstitialControllerDidLeaveApp(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "PrebidMobileInterstitialControllerProtocol",
+                "printedName": "any PrebidMobile.PrebidMobileInterstitialControllerProtocol",
+                "usr": "c:@M@PrebidMobile@objc(pl)PrebidMobileInterstitialControllerProtocol"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)interstitialControllerDidLeaveApp:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC33interstitialControllerDidLeaveAppyy0aB00ab12InterstitialG8Protocol_pF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "interstitialControllerDidLeaveApp:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "loadNativeAd",
+            "printedName": "loadNativeAd(for:andNotify:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAAdapterResponseParameters",
+                "printedName": "any AppLovinSDK.MAAdapterResponseParameters",
+                "usr": "c:objc(pl)MAAdapterResponseParameters"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MANativeAdAdapterDelegate",
+                "printedName": "any AppLovinSDK.MANativeAdAdapterDelegate",
+                "usr": "c:objc(pl)MANativeAdAdapterDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)loadNativeAdForParameters:andNotify:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC12loadNativeAd3for9andNotifyySo27MAAdapterResponseParameters_p_So08MANativehE8Delegate_ptF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "loadNativeAdForParameters:andNotify:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "adDidExpire",
+            "printedName": "adDidExpire(ad:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NativeAd",
+                "printedName": "PrebidMobile.NativeAd",
+                "usr": "c:@M@PrebidMobile@objc(cs)NativeAd"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)adDidExpireWithAd:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC11adDidExpire0F0y0aB08NativeAdC_tF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "adDidExpireWithAd:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "adWasClicked",
+            "printedName": "adWasClicked(ad:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NativeAd",
+                "printedName": "PrebidMobile.NativeAd",
+                "usr": "c:@M@PrebidMobile@objc(cs)NativeAd"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)adWasClickedWithAd:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC12adWasClicked0F0y0aB08NativeAdC_tF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "adWasClickedWithAd:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "adDidLogImpression",
+            "printedName": "adDidLogImpression(ad:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NativeAd",
+                "printedName": "PrebidMobile.NativeAd",
+                "usr": "c:@M@PrebidMobile@objc(cs)NativeAd"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)adDidLogImpressionWithAd:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC18adDidLogImpression0F0y0aB08NativeAdC_tF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "adDidLogImpressionWithAd:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "loadAdViewAd",
+            "printedName": "loadAdViewAd(for:adFormat:andNotify:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAAdapterResponseParameters",
+                "printedName": "any AppLovinSDK.MAAdapterResponseParameters",
+                "usr": "c:objc(pl)MAAdapterResponseParameters"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAAdFormat",
+                "printedName": "AppLovinSDK.MAAdFormat",
+                "usr": "c:objc(cs)MAAdFormat"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAAdViewAdapterDelegate",
+                "printedName": "any AppLovinSDK.MAAdViewAdapterDelegate",
+                "usr": "c:objc(pl)MAAdViewAdapterDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)loadAdViewAdForParameters:adFormat:andNotify:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC010loadAdViewG03for8adFormat9andNotifyySo27MAAdapterResponseParameters_p_So04MAAdK0CSo0qhE8Delegate_ptF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "loadAdViewAdForParameters:adFormat:andNotify:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "displayViewDidLoadAd",
+            "printedName": "displayViewDidLoadAd(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIView",
+                "printedName": "UIKit.UIView",
+                "usr": "c:objc(cs)UIView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)displayViewDidLoadAd:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC20displayViewDidLoadAdyySo6UIViewCF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "displayViewDidLoadAd:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "displayView",
+            "printedName": "displayView(_:didFailWithError:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIView",
+                "printedName": "UIKit.UIView",
+                "usr": "c:objc(cs)UIView"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Error",
+                "printedName": "any Swift.Error",
+                "usr": "s:s5ErrorP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)displayView:didFailWithError:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC11displayView_16didFailWithErrorySo6UIViewC_s0K0_ptF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "displayView:didFailWithError:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "viewControllerForModalPresentation",
+            "printedName": "viewControllerForModalPresentation(fromDisplayView:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIViewController?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIViewController",
+                    "printedName": "UIKit.UIViewController",
+                    "usr": "c:objc(cs)UIViewController"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIView",
+                "printedName": "UIKit.UIView",
+                "usr": "c:objc(cs)UIView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)viewControllerForModalPresentationFromDisplayView:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC34viewControllerForModalPresentation15fromDisplayViewSo06UIViewG0CSgSo0N0C_tF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "viewControllerForModalPresentationFromDisplayView:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "willPresentModal",
+            "printedName": "willPresentModal(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIView",
+                "printedName": "UIKit.UIView",
+                "usr": "c:objc(cs)UIView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)willPresentModalFrom:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC16willPresentModal4fromySo6UIViewC_tF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "willPresentModalFrom:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "didDismissModal",
+            "printedName": "didDismissModal(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIView",
+                "printedName": "UIKit.UIView",
+                "usr": "c:objc(cs)UIView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)didDismissModalFrom:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC15didDismissModal4fromySo6UIViewC_tF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "didDismissModalFrom:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackImpression",
+            "printedName": "trackImpression(forDisplayView:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIView",
+                "printedName": "UIKit.UIView",
+                "usr": "c:objc(cs)UIView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)trackImpressionForDisplayView:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC15trackImpression14forDisplayViewySo6UIViewC_tF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "trackImpressionForDisplayView:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "didLeaveApp",
+            "printedName": "didLeaveApp(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIView",
+                "printedName": "UIKit.UIView",
+                "usr": "c:objc(cs)UIView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter(im)didLeaveAppFrom:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC11didLeaveApp4fromySo6UIViewC_tF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "didLeaveAppFrom:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAXMediationAdapter",
+        "mangledName": "$s23PrebidMobileMAXAdapters0A19MAXMediationAdapterC",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "objc_name": "PrebidMAXMediationAdapter",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)ALMediationAdapter",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "AppLovinSDK.ALMediationAdapter",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "InterstitialControllerLoadingDelegate",
+            "printedName": "InterstitialControllerLoadingDelegate",
+            "usr": "c:@M@PrebidMobile@objc(pl)InterstitialControllerLoadingDelegate",
+            "mangledName": "$s12PrebidMobile37InterstitialControllerLoadingDelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "InterstitialControllerInteractionDelegate",
+            "printedName": "InterstitialControllerInteractionDelegate",
+            "usr": "c:@M@PrebidMobile@objc(pl)InterstitialControllerInteractionDelegate",
+            "mangledName": "$s12PrebidMobile41InterstitialControllerInteractionDelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "NativeAdEventDelegate",
+            "printedName": "NativeAdEventDelegate",
+            "usr": "c:@M@PrebidMobile@objc(pl)NativeAdEventDelegate",
+            "mangledName": "$s12PrebidMobile21NativeAdEventDelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DisplayViewLoadingDelegate",
+            "printedName": "DisplayViewLoadingDelegate",
+            "usr": "c:@M@PrebidMobile@objc(pl)DisplayViewLoadingDelegate",
+            "mangledName": "$s12PrebidMobile26DisplayViewLoadingDelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "DisplayViewInteractionDelegate",
+            "printedName": "DisplayViewInteractionDelegate",
+            "usr": "c:@M@PrebidMobile@objc(pl)DisplayViewInteractionDelegate",
+            "mangledName": "$s12PrebidMobile30DisplayViewInteractionDelegateP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PrebidMobile",
+        "printedName": "PrebidMobile",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "Import",
+        "name": "AppLovinSDK",
+        "printedName": "AppLovinSDK",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MAXMediationInterstitialUtils",
+        "printedName": "MAXMediationInterstitialUtils",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "interstitialAd",
+            "printedName": "interstitialAd",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MAInterstitialAd",
+                "printedName": "AppLovinSDK.MAInterstitialAd",
+                "usr": "c:objc(cs)MAInterstitialAd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationInterstitialUtils(py)interstitialAd",
+            "mangledName": "$s23PrebidMobileMAXAdapters29MAXMediationInterstitialUtilsC14interstitialAdSo014MAInterstitialH0Cvp",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MAInterstitialAd",
+                    "printedName": "AppLovinSDK.MAInterstitialAd",
+                    "usr": "c:objc(cs)MAInterstitialAd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationInterstitialUtils(im)interstitialAd",
+                "mangledName": "$s23PrebidMobileMAXAdapters29MAXMediationInterstitialUtilsC14interstitialAdSo014MAInterstitialH0Cvg",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MAInterstitialAd",
+                    "printedName": "AppLovinSDK.MAInterstitialAd",
+                    "usr": "c:objc(cs)MAInterstitialAd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationInterstitialUtils(im)setInterstitialAd:",
+                "mangledName": "$s23PrebidMobileMAXAdapters29MAXMediationInterstitialUtilsC14interstitialAdSo014MAInterstitialH0Cvs",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters29MAXMediationInterstitialUtilsC14interstitialAdSo014MAInterstitialH0CvM",
+                "mangledName": "$s23PrebidMobileMAXAdapters29MAXMediationInterstitialUtilsC14interstitialAdSo014MAInterstitialH0CvM",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(interstitialAd:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MAXMediationInterstitialUtils",
+                "printedName": "PrebidMobileMAXAdapters.MAXMediationInterstitialUtils",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationInterstitialUtils"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAInterstitialAd",
+                "printedName": "AppLovinSDK.MAInterstitialAd",
+                "usr": "c:objc(cs)MAInterstitialAd"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationInterstitialUtils(im)initWithInterstitialAd:",
+            "mangledName": "$s23PrebidMobileMAXAdapters29MAXMediationInterstitialUtilsC14interstitialAdACSo014MAInterstitialH0C_tcfc",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "setUpAdObject",
+            "printedName": "setUpAdObject(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationInterstitialUtils(im)setUpAdObjectWith:",
+            "mangledName": "$s23PrebidMobileMAXAdapters29MAXMediationInterstitialUtilsC13setUpAdObject4withSbSDySSypG_tF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "setUpAdObjectWith:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "cleanUpAdObject",
+            "printedName": "cleanUpAdObject()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationInterstitialUtils(im)cleanUpAdObject",
+            "mangledName": "$s23PrebidMobileMAXAdapters29MAXMediationInterstitialUtilsC15cleanUpAdObjectyyF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "cleanUpAdObject",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getAdView",
+            "printedName": "getAdView()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIView",
+                    "printedName": "UIKit.UIView",
+                    "usr": "c:objc(cs)UIView"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationInterstitialUtils(im)getAdView",
+            "mangledName": "$s23PrebidMobileMAXAdapters29MAXMediationInterstitialUtilsC9getAdViewSo6UIViewCSgyF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "getAdView",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MAXMediationInterstitialUtils",
+                "printedName": "PrebidMobileMAXAdapters.MAXMediationInterstitialUtils",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationInterstitialUtils"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationInterstitialUtils(im)init",
+            "mangledName": "$s23PrebidMobileMAXAdapters29MAXMediationInterstitialUtilsCACycfc",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationInterstitialUtils",
+        "mangledName": "$s23PrebidMobileMAXAdapters29MAXMediationInterstitialUtilsC",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "PrebidMediationDelegate",
+            "printedName": "PrebidMediationDelegate",
+            "usr": "c:@M@PrebidMobile@objc(pl)PrebidMediationDelegate",
+            "mangledName": "$s12PrebidMobile0A17MediationDelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PrebidMobile",
+        "printedName": "PrebidMobile",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "Import",
+        "name": "AppLovinSDK",
+        "printedName": "AppLovinSDK",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PrebidMAUnifiedNativeAd",
+        "printedName": "PrebidMAUnifiedNativeAd",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "nativeAd",
+            "printedName": "nativeAd",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NativeAd",
+                "printedName": "PrebidMobile.NativeAd",
+                "usr": "c:@M@PrebidMobile@objc(cs)NativeAd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAUnifiedNativeAd(py)nativeAd",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A17MAUnifiedNativeAdC06nativeF00aB00eF0Cvp",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NativeAd",
+                    "printedName": "PrebidMobile.NativeAd",
+                    "usr": "c:@M@PrebidMobile@objc(cs)NativeAd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAUnifiedNativeAd(im)nativeAd",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A17MAUnifiedNativeAdC06nativeF00aB00eF0Cvg",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NativeAd",
+                    "printedName": "PrebidMobile.NativeAd",
+                    "usr": "c:@M@PrebidMobile@objc(cs)NativeAd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAUnifiedNativeAd(im)setNativeAd:",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A17MAUnifiedNativeAdC06nativeF00aB00eF0Cvs",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters0A17MAUnifiedNativeAdC06nativeF00aB00eF0CvM",
+                "mangledName": "$s23PrebidMobileMAXAdapters0A17MAUnifiedNativeAdC06nativeF00aB00eF0CvM",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(nativeAd:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PrebidMAUnifiedNativeAd",
+                "printedName": "PrebidMobileMAXAdapters.PrebidMAUnifiedNativeAd",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAUnifiedNativeAd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NativeAd",
+                "printedName": "PrebidMobile.NativeAd",
+                "usr": "c:@M@PrebidMobile@objc(cs)NativeAd"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAUnifiedNativeAd(im)initWithNativeAd:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A17MAUnifiedNativeAdC06nativeF0AC0aB00eF0C_tcfc",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "prepare",
+            "printedName": "prepare(forInteractionClickableViews:withContainer:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[UIKit.UIView]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIView",
+                    "printedName": "UIKit.UIView",
+                    "usr": "c:objc(cs)UIView"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIView",
+                "printedName": "UIKit.UIView",
+                "usr": "c:objc(cs)UIView"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAUnifiedNativeAd(im)prepareForInteractionClickableViews:withContainer:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A17MAUnifiedNativeAdC7prepare28forInteractionClickableViews13withContainerSbSaySo6UIViewCG_AHtF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "overriding": true,
+            "objc_name": "prepareForInteractionClickableViews:withContainer:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(format:builderBlock:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "PrebidMAUnifiedNativeAd",
+                "printedName": "PrebidMobileMAXAdapters.PrebidMAUnifiedNativeAd",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAUnifiedNativeAd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAAdFormat",
+                "printedName": "AppLovinSDK.MAAdFormat",
+                "usr": "c:objc(cs)MAAdFormat"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppLovinSDK.MANativeAdBuilder) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MANativeAdBuilder",
+                    "printedName": "AppLovinSDK.MANativeAdBuilder",
+                    "usr": "c:objc(cs)MANativeAdBuilder"
+                  }
+                ],
+                "typeAttributes": [
+                  "noescape"
+                ]
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAUnifiedNativeAd(im)initWithFormat:builderBlock:",
+            "mangledName": "$s23PrebidMobileMAXAdapters0A17MAUnifiedNativeAdC6format12builderBlockACSo10MAAdFormatC_ySo08MANativeF7BuilderCXEtcfc",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithFormat:builderBlock:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAUnifiedNativeAd",
+        "mangledName": "$s23PrebidMobileMAXAdapters0A17MAUnifiedNativeAdC",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)MANativeAd",
+        "superclassNames": [
+          "AppLovinSDK.MANativeAd",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MAXConstants",
+        "printedName": "MAXConstants",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "PrebidMAXAdapterVersion",
+            "printedName": "PrebidMAXAdapterVersion",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXConstants(cpy)PrebidMAXAdapterVersion",
+            "mangledName": "$s23PrebidMobileMAXAdapters12MAXConstantsC0A17MAXAdapterVersionSSvpZ",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXConstants(cm)PrebidMAXAdapterVersion",
+                "mangledName": "$s23PrebidMobileMAXAdapters12MAXConstantsC0A17MAXAdapterVersionSSvgZ",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MAXConstants",
+                "printedName": "PrebidMobileMAXAdapters.MAXConstants",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXConstants"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXConstants(im)init",
+            "mangledName": "$s23PrebidMobileMAXAdapters12MAXConstantsCACycfc",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXConstants",
+        "mangledName": "$s23PrebidMobileMAXAdapters12MAXConstantsC",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PrebidMobile",
+        "printedName": "PrebidMobile",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "Import",
+        "name": "AppLovinSDK",
+        "printedName": "AppLovinSDK",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PrebidMobile",
+        "printedName": "PrebidMobile",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "Import",
+        "name": "AppLovinSDK",
+        "printedName": "AppLovinSDK",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MAXMediationBannerUtils",
+        "printedName": "MAXMediationBannerUtils",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "adView",
+            "printedName": "adView",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MAAdView",
+                "printedName": "AppLovinSDK.MAAdView",
+                "usr": "c:objc(cs)MAAdView"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationBannerUtils(py)adView",
+            "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationBannerUtilsC6adViewSo04MAAdH0Cvp",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MAAdView",
+                    "printedName": "AppLovinSDK.MAAdView",
+                    "usr": "c:objc(cs)MAAdView"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationBannerUtils(im)adView",
+                "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationBannerUtilsC6adViewSo04MAAdH0Cvg",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MAAdView",
+                    "printedName": "AppLovinSDK.MAAdView",
+                    "usr": "c:objc(cs)MAAdView"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationBannerUtils(im)setAdView:",
+                "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationBannerUtilsC6adViewSo04MAAdH0Cvs",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters23MAXMediationBannerUtilsC6adViewSo04MAAdH0CvM",
+                "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationBannerUtilsC6adViewSo04MAAdH0CvM",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(adView:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MAXMediationBannerUtils",
+                "printedName": "PrebidMobileMAXAdapters.MAXMediationBannerUtils",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationBannerUtils"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MAAdView",
+                "printedName": "AppLovinSDK.MAAdView",
+                "usr": "c:objc(cs)MAAdView"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationBannerUtils(im)initWithAdView:",
+            "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationBannerUtilsC6adViewACSo04MAAdH0C_tcfc",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "setUpAdObject",
+            "printedName": "setUpAdObject(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationBannerUtils(im)setUpAdObjectWith:",
+            "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationBannerUtilsC13setUpAdObject4withSbSDySSypG_tF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "setUpAdObjectWith:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "cleanUpAdObject",
+            "printedName": "cleanUpAdObject()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationBannerUtils(im)cleanUpAdObject",
+            "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationBannerUtilsC15cleanUpAdObjectyyF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "cleanUpAdObject",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getAdView",
+            "printedName": "getAdView()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIView",
+                    "printedName": "UIKit.UIView",
+                    "usr": "c:objc(cs)UIView"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationBannerUtils(im)getAdView",
+            "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationBannerUtilsC9getAdViewSo6UIViewCSgyF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "getAdView",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MAXMediationBannerUtils",
+                "printedName": "PrebidMobileMAXAdapters.MAXMediationBannerUtils",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationBannerUtils"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationBannerUtils(im)init",
+            "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationBannerUtilsCACycfc",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationBannerUtils",
+        "mangledName": "$s23PrebidMobileMAXAdapters23MAXMediationBannerUtilsC",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "PrebidMediationDelegate",
+            "printedName": "PrebidMediationDelegate",
+            "usr": "c:@M@PrebidMobile@objc(pl)PrebidMediationDelegate",
+            "mangledName": "$s12PrebidMobile0A17MediationDelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PrebidMobile",
+        "printedName": "PrebidMobile",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "Import",
+        "name": "AppLovinSDK",
+        "printedName": "AppLovinSDK",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PrebidMobile",
+        "printedName": "PrebidMobile",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "Import",
+        "name": "AppLovinSDK",
+        "printedName": "AppLovinSDK",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MAXMediationRewardedUtils",
+        "printedName": "MAXMediationRewardedUtils",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "rewardedAd",
+            "printedName": "rewardedAd",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MARewardedAd",
+                "printedName": "AppLovinSDK.MARewardedAd",
+                "usr": "c:objc(cs)MARewardedAd"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationRewardedUtils(py)rewardedAd",
+            "mangledName": "$s23PrebidMobileMAXAdapters25MAXMediationRewardedUtilsC10rewardedAdSo010MARewardedH0Cvp",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MARewardedAd",
+                    "printedName": "AppLovinSDK.MARewardedAd",
+                    "usr": "c:objc(cs)MARewardedAd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationRewardedUtils(im)rewardedAd",
+                "mangledName": "$s23PrebidMobileMAXAdapters25MAXMediationRewardedUtilsC10rewardedAdSo010MARewardedH0Cvg",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MARewardedAd",
+                    "printedName": "AppLovinSDK.MARewardedAd",
+                    "usr": "c:objc(cs)MARewardedAd"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationRewardedUtils(im)setRewardedAd:",
+                "mangledName": "$s23PrebidMobileMAXAdapters25MAXMediationRewardedUtilsC10rewardedAdSo010MARewardedH0Cvs",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:23PrebidMobileMAXAdapters25MAXMediationRewardedUtilsC10rewardedAdSo010MARewardedH0CvM",
+                "mangledName": "$s23PrebidMobileMAXAdapters25MAXMediationRewardedUtilsC10rewardedAdSo010MARewardedH0CvM",
+                "moduleName": "PrebidMobileMAXAdapters",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rewardedAd:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MAXMediationRewardedUtils",
+                "printedName": "PrebidMobileMAXAdapters.MAXMediationRewardedUtils",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationRewardedUtils"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MARewardedAd",
+                "printedName": "AppLovinSDK.MARewardedAd",
+                "usr": "c:objc(cs)MARewardedAd"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationRewardedUtils(im)initWithRewardedAd:",
+            "mangledName": "$s23PrebidMobileMAXAdapters25MAXMediationRewardedUtilsC10rewardedAdACSo010MARewardedH0C_tcfc",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "setUpAdObject",
+            "printedName": "setUpAdObject(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationRewardedUtils(im)setUpAdObjectWith:",
+            "mangledName": "$s23PrebidMobileMAXAdapters25MAXMediationRewardedUtilsC13setUpAdObject4withSbSDySSypG_tF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "setUpAdObjectWith:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "cleanUpAdObject",
+            "printedName": "cleanUpAdObject()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationRewardedUtils(im)cleanUpAdObject",
+            "mangledName": "$s23PrebidMobileMAXAdapters25MAXMediationRewardedUtilsC15cleanUpAdObjectyyF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "cleanUpAdObject",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getAdView",
+            "printedName": "getAdView()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIView?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIView",
+                    "printedName": "UIKit.UIView",
+                    "usr": "c:objc(cs)UIView"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationRewardedUtils(im)getAdView",
+            "mangledName": "$s23PrebidMobileMAXAdapters25MAXMediationRewardedUtilsC9getAdViewSo6UIViewCSgyF",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "objc_name": "getAdView",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MAXMediationRewardedUtils",
+                "printedName": "PrebidMobileMAXAdapters.MAXMediationRewardedUtils",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationRewardedUtils"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationRewardedUtils(im)init",
+            "mangledName": "$s23PrebidMobileMAXAdapters25MAXMediationRewardedUtilsCACycfc",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXMediationRewardedUtils",
+        "mangledName": "$s23PrebidMobileMAXAdapters25MAXMediationRewardedUtilsC",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "PrebidMediationDelegate",
+            "printedName": "PrebidMediationDelegate",
+            "usr": "c:@M@PrebidMobile@objc(pl)PrebidMediationDelegate",
+            "mangledName": "$s12PrebidMobile0A17MediationDelegateP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "PrebidMobile",
+        "printedName": "PrebidMobile",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "Import",
+        "name": "AppLovinSDK",
+        "printedName": "AppLovinSDK",
+        "declKind": "Import",
+        "moduleName": "PrebidMobileMAXAdapters"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MAXUtils",
+        "printedName": "MAXUtils",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "findNative",
+            "printedName": "findNative(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Result",
+                "printedName": "Swift.Result<PrebidMobileMAXAdapters.PrebidMAUnifiedNativeAd, any Swift.Error>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "PrebidMAUnifiedNativeAd",
+                    "printedName": "PrebidMobileMAXAdapters.PrebidMAUnifiedNativeAd",
+                    "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)PrebidMAUnifiedNativeAd"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "usr": "s:s6ResultO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.AnyHashable : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyHashable",
+                    "printedName": "Swift.AnyHashable",
+                    "usr": "s:s11AnyHashableV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:23PrebidMobileMAXAdapters8MAXUtilsC10findNativeys6ResultOyAA0a9MAUnifiedF2AdCs5Error_pGSDys11AnyHashableVypGFZ",
+            "mangledName": "$s23PrebidMobileMAXAdapters8MAXUtilsC10findNativeys6ResultOyAA0a9MAUnifiedF2AdCs5Error_pGSDys11AnyHashableVypGFZ",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MAXUtils",
+                "printedName": "PrebidMobileMAXAdapters.MAXUtils",
+                "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXUtils"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXUtils(im)init",
+            "mangledName": "$s23PrebidMobileMAXAdapters8MAXUtilsCACycfc",
+            "moduleName": "PrebidMobileMAXAdapters",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@PrebidMobileMAXAdapters@objc(cs)MAXUtils",
+        "mangledName": "$s23PrebidMobileMAXAdapters8MAXUtilsC",
+        "moduleName": "PrebidMobileMAXAdapters",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/maksymdanylov\/Development\/prebid-mobile-ios\/EventHandlers\/PrebidMobileMAXAdapters\/Sources\/PrebidMAXMediationAdapter.swift",
+      "kind": "StringLiteral",
+      "offset": 682,
+      "length": 19,
+      "value": "\"custom_parameters\""
+    },
+    {
+      "filePath": "\/Users\/maksymdanylov\/Development\/prebid-mobile-ios\/EventHandlers\/PrebidMobileMAXAdapters\/Sources\/PrebidMAXMediationAdapter.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1149,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/maksymdanylov\/Development\/prebid-mobile-ios\/EventHandlers\/PrebidMobileMAXAdapters\/Sources\/MAXConstants.swift",
+      "kind": "StringLiteral",
+      "offset": 706,
+      "length": 7,
+      "value": "\"2.4.0\""
+    }
+  ]
+}

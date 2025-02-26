@@ -1,0 +1,11 @@
+framework module PrebidMobileAdMobAdapters {
+  umbrella header "PrebidMobileAdMobAdapters.h"
+  export *
+
+  module * { export * }
+}
+
+module PrebidMobileAdMobAdapters.Swift {
+  header "PrebidMobileAdMobAdapters-Swift.h"
+  requires objc
+}
