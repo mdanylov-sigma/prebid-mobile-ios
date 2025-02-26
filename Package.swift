@@ -65,7 +65,7 @@ let package = Package(
         .binaryTarget(
             name: "PrebidMobileGAMEventHandlers",
             path: "Frameworks/XCPrebidMobileGAMEventHandlers.xcframework"
-        )
+        ),
         .binaryTarget(
             name: "OMSDK",
             path: "Frameworks/OMSDK-Static_Prebidorg.xcframework"
