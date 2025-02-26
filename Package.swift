@@ -23,15 +23,10 @@ let package = Package(
         .library(
             name: "PrebidMobileGAMEventHandlers",
             targets: ["_PrebidMobileGAMEventHandlers"]
-        ),
-        .library(
-            name: "PrebidMobileMAXAdapters",
-            targets: ["_PrebidMobileMAXAdapters"]
-        ),
+        )
     ],
     dependencies: [
-        .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git", exact: "11.13.0"),
-        .package(url: "https://github.com/AppLovin/AppLovin-MAX-Swift-Package.git", .upToNextMajor(from: "13.1.0"))
+        .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git", exact: "11.13.0")
     ],
     targets: [
         .target(
@@ -59,15 +54,6 @@ let package = Package(
             ],
             path: "Frameworks/PrebidMobileGAMEventHandlers"
         ),
-        .target(
-            name: "_PrebidMobileMAXAdapters",
-            dependencies: [
-                "_PrebidMobile",
-                "PrebidMobileMAXAdapters",
-                .product(name: "AppLovinSDK", package: "AppLovin-MAX-Swift-Package")
-            ],
-            path: "Frameworks/PrebidMobileMAXAdapters"
-        ),
         .binaryTarget(
             name: "PrebidMobile",
             path: "Frameworks/XCPrebidMobile.xcframework"
@@ -79,11 +65,7 @@ let package = Package(
         .binaryTarget(
             name: "PrebidMobileGAMEventHandlers",
             path: "Frameworks/XCPrebidMobileGAMEventHandlers.xcframework"
-        ),
-        .binaryTarget(
-            name: "PrebidMobileMAXAdapters",
-            path: "Frameworks/XCPrebidMobileMAXAdapters.xcframework"
-        ),
+        )
         .binaryTarget(
             name: "OMSDK",
             path: "Frameworks/OMSDK-Static_Prebidorg.xcframework"
