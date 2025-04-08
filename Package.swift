@@ -15,18 +15,7 @@ let package = Package(
         .library(
             name: "PrebidMobile",
             targets: ["_PrebidMobile"]
-        ),
-        .library(
-            name: "PrebidMobileAdMobAdapters",
-            targets: ["_PrebidMobileAdMobAdapters"]
-        ),
-        .library(
-            name: "PrebidMobileGAMEventHandlers",
-            targets: ["_PrebidMobileGAMEventHandlers"]
         )
-    ],
-    dependencies: [
-        .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads.git", exact: "11.13.0")
     ],
     targets: [
         .target(
@@ -34,37 +23,12 @@ let package = Package(
             dependencies: [
                 "PrebidMobile",
                 "OMSDK",
-                .product(name: "GoogleMobileAds", package: "swift-package-manager-google-mobile-ads")
             ],
             path: "Frameworks/PrebidMobile"
-        ),
-        .target(
-            name: "_PrebidMobileAdMobAdapters",
-            dependencies: [
-                "_PrebidMobile",
-                "PrebidMobileAdMobAdapters"
-            ],
-            path: "Frameworks/PrebidMobileAdMobAdapters"
-        ),
-        .target(
-            name: "_PrebidMobileGAMEventHandlers",
-            dependencies: [
-                "_PrebidMobile",
-                "PrebidMobileGAMEventHandlers"
-            ],
-            path: "Frameworks/PrebidMobileGAMEventHandlers"
         ),
         .binaryTarget(
             name: "PrebidMobile",
             path: "Frameworks/XCPrebidMobile.xcframework"
-        ),
-        .binaryTarget(
-            name: "PrebidMobileAdMobAdapters",
-            path: "Frameworks/XCPrebidMobileAdMobAdapters.xcframework"
-        ),
-        .binaryTarget(
-            name: "PrebidMobileGAMEventHandlers",
-            path: "Frameworks/XCPrebidMobileGAMEventHandlers.xcframework"
         ),
         .binaryTarget(
             name: "OMSDK",

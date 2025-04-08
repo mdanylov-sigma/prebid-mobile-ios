@@ -1,0 +1,52 @@
+name: Manual Job - Clone and Copy Files
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag name to use in the second repo'
+        required: true
+        default: '100.0.0'
+
+jobs:
+  clone-and-copy:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      - name: Checkout Package repo 
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git clone https://x-access-token:${GH_TOKEN}@github.com/mdanylov-sigma/fmwk-spm.git fmwk-spm
+
+      - name: Copy files to second repo
+        run: |
+          cp Package.swift fmwk-spm/
+          cp  fmwk-spm/path/in/second/repo/
+
+      - name: Replace files in second repo
+        run: |
+          rsync -a --delete Package.swift fmwk-spm/
+          rsync -a --delete Frameworks/OMSDK-Static_Prebidorg.xcframework fmwk-spm/Frameworks/
+          rsync -a --delete Frameworks/XCPrebidMobile.xcframework fmwk-spm/Frameworks/
+
+      - name: Commit and push to second repo
+        run: |
+          cd fmwk-spm
+          git add .
+          git commit -m "version ${{ github.event.inputs.tag }}"
+          git push origin main
+
+      - name: Tag and push
+        run: |
+          cd fmwk-spm
+          git tag ${{ github.event.inputs.tag }}
+          git push origin ${{ github.event.inputs.tag }}
