@@ -11,7 +11,6 @@ on:
       - 'Podfile.lock'
       - '.github/workflows/**'
     types: [opened, reopened, synchronize, ready_for_review, labeled]
-  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -43,4 +42,3 @@ jobs:
         run: echo "Running FULL test suite or expensive jobs"
 
 
-        
