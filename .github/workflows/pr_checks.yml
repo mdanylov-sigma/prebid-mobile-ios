@@ -1,0 +1,61 @@
+name: iOS PR
+
+on:
+  pull_request:
+    paths:
+      - 'PrebidMobile/**'
+      - 'EventHandlers/**'
+      - 'scripts/**'
+      - 'PrebidMobileTests/**'
+      - 'Podfile'
+      - 'Podfile.lock'
+      - '.github/workflows/**'
+    types: [opened, reopened, synchronize, ready_for_review]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+
+jobs:
+  build:
+    if: ${{ !github.event.pull_request.draft }}
+    runs-on: macos-latest
+    env:
+      DERIVED_DATA_PATH: $HOME/Library/Developer/Xcode/DerivedData
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Cache CocoaPods
+        id: pods-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            Pods
+            ~/.cocoapods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
+      - name: Install CocoaPods
+        if: hashFiles('**/Podfile') != ''
+        run: |
+          pod install
+
+      - name: Cache DerivedData
+        id: deriveddata-cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.DERIVED_DATA_PATH }}
+          key: ${{ runner.os }}-deriveddata-${{ hashFiles('**/*.xcodeproj/project.pbxproj', '**/*.xcworkspace/contents.xcworkspacedata', '**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-deriveddata-
+
+      - name: Build via script
+        env:
+          DERIVED_DATA_PATH: ${{ env.DERIVED_DATA_PATH }}
+        run: ./scripts/buildPrebidMobile.sh
