@@ -16,13 +16,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
-
 jobs:
   build:
     if: ${{ !github.event.pull_request.draft }}
     runs-on: macos-15
-    env:
-      DERIVED_DATA_PATH: $HOME/Library/Developer/Xcode/DerivedData
 
     steps:
       - name: Checkout
@@ -46,17 +43,8 @@ jobs:
         run: |
           pod install
 
-      - name: Cache DerivedData
-        id: deriveddata-cache
-        uses: actions/cache@v4
-        with:
-          path: .deriveddata
-          key: ${{ runner.os }}-deriveddata-${{ hashFiles('**/*.xcodeproj/project.pbxproj', '**/*.xcworkspace/contents.xcworkspacedata', '**/Podfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-deriveddata-
-
       - name: Build via script
-        run: ./scripts/buildPrebidMobile.sh --derived-data "$GITHUB_WORKSPACE/.deriveddata"
+        run: ./scripts/buildPrebidMobile.sh
       
       - name: Upload logs on failure
         if: ${{ failure() }}
