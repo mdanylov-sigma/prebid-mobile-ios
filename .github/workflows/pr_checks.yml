@@ -56,7 +56,7 @@ jobs:
             ${{ runner.os }}-deriveddata-
 
       - name: Build via script
-        run: ./scripts/buildPrebidSPM.sh
+        run: ./scripts/buildPrebidMobile.sh
       
       - name: Upload logs on failure
         if: ${{ failure() }}
