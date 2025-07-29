@@ -5,7 +5,6 @@ To work with Prebid Mobile, you will need accesss to a Prebid Server. See [this 
 ## Use SPM?
 
 Starting from version `3.1.0`, PrebidMobile supports Swift Package Manager (SPM), making integration much easier and more maintainable compared to manual setups or CocoaPods.
-
 To [add the Prebid Mobile SDK package dependency](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app#Add-a-package-dependency) using SPM, follow these steps:
 
 1. In Xcode, install the Prebid Mobile SDK by navigating to File > Add Package Dependencies...
