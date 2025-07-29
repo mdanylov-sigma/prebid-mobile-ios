@@ -23,6 +23,21 @@ LOG_DIR="$GENERATED_DIR_NAME/log"
 LOG_FILE_FRAMEWORK="$LOG_DIR/prebid_mobile_build.log"
 LOG_FILE_FRAMEWORK_ABSOLUTE="$PWD/$LOG_FILE_FRAMEWORK"
 
+XCODE_BUILD_DIR=""
+
+# Parse args (supports --derived-data PATH or --derived-data=PATH)
+args=()
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --derived-data)
+      XCODE_BUILD_DIR="$2"; shift 2;;
+    --derived-data=*)
+      XCODE_BUILD_DIR="${1#*=}"; shift;;
+    *) args+=("$1"); shift;;
+  esac
+done
+set -- "${args[@]}"
+
 XCODE_BUILD_DIR="$GENERATED_DIR_NAME/xcodebuild"
 
 XCODE_ARCHIVE_DIR="$GENERATED_DIR_NAME/archive"
