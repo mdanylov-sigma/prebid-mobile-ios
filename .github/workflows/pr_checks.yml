@@ -20,7 +20,7 @@ concurrency:
 jobs:
   build:
     if: ${{ !github.event.pull_request.draft }}
-    runs-on: macos-latest
+    runs-on: macos-15
     env:
       DERIVED_DATA_PATH: $HOME/Library/Developer/Xcode/DerivedData
 
@@ -56,7 +56,7 @@ jobs:
             ${{ runner.os }}-deriveddata-
 
       - name: Build via script
-        run: ./scripts/buildPrebidMobile.sh
+        run: ./scripts/buildPrebidSPM.sh
       
       - name: Upload logs on failure
         if: ${{ failure() }}
