@@ -1,4 +1,4 @@
-name: iOS PR
+name: Lightweight iOS PR
 
 on:
   pull_request:
