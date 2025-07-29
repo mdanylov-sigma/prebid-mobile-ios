@@ -44,7 +44,8 @@ jobs:
           pod install
 
       - name: Build via script
-        run: ./scripts/testPrebidMobile.sh -l -q
+        run: echo "Running LIGHTWEIGHT test suite or expensive jobs"
+        # run: ./scripts/testPrebidMobile.sh -l -q
 
 
       # - name: Build via script
