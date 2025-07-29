@@ -22,13 +22,16 @@ jobs:
       runs-on: macos-15
       if: >-
         ${{
+        github.event_name == 'workflow_dispatch' ||
         (
-          github.event_name == 'workflow_dispatch'
-        ) || (
-          github.event_name == 'pull_request' && contains(github.head_ref, 'bump-to')
-        ) || (
           github.event_name == 'pull_request' &&
-          contains(toJson(github.event.pull_request.labels), 'run-full-tests')
+          (
+            contains(github.head_ref || '', 'bump-to') ||
+            (
+              github.event.pull_request != null &&
+              contains(toJson(github.event.pull_request.labels) || '', 'run-full-tests')
+            )
+          )
         )
         }}
       steps:
@@ -38,3 +41,6 @@ jobs:
           fetch-depth: 0
       - name: Build via script
         run: echo "Running FULL test suite or expensive jobs"
+
+
+        
