@@ -89,7 +89,7 @@ jobs:
         run: echo "Run Smoke UI Tests"
         #   run: ./scripts/testPrebidDemo.sh -ui -l
   run-swift-demo-integration-tests:
-    name: Run Intgration Tests - Swift Demo App
+    name: Run Integration Tests - Swift Demo App
     if: ${{!github.event.pull_request.draft && (contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
     runs-on: macos-15
     steps:
