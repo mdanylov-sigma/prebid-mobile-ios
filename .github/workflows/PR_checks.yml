@@ -16,9 +16,6 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
-
-#github.event_name == 'pull_request' && contains(github.head_ref, 'bump-to')
-
 jobs:
   build:
     name: Build PrebidMobile Frameworks
