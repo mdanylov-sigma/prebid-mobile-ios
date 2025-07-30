@@ -1,5 +1,5 @@
 
-name: Full / Selective PrebidMobile checks
+name: Full / Selective PrebidMobile Checks
 
 on:
   workflow_dispatch:

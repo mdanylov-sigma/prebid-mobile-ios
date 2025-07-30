@@ -1,4 +1,4 @@
-name: Lightweight iOS PR
+name: Pull Request Checks
 
 on:
   pull_request:
