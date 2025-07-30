@@ -18,7 +18,7 @@ concurrency:
 
 jobs:
   docs-generation:
-    runs-on: macos-latest
+    runs-on: macos-15
 
     steps:
       - name: Checkout
