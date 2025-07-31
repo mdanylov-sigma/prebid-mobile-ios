@@ -31,36 +31,25 @@ jobs:
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
-      - run: echo "Build"
-      # - run: ./scripts/buildPrebidMobile.sh
+      - run: ./scripts/buildPrebidMobile.sh
 
   unit_tests:
     if: ${{ inputs.all || inputs.unit_tests }}
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
-      - run: echo "Unit tests"
-      # - run: ./scripts/buildPrebidMobile.sh
+      - run: ./scripts/buildPrebidMobile.sh
 
   smoke_ui_tests:
     if: ${{ inputs.all || inputs.smoke_ui_tests }}
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
-      - run: echo "UI tests"
-        #   run: ./scripts/testPrebidDemo.sh -ui -l
+      - run: ./scripts/testPrebidDemo.sh -ui -l
 
   integration_tests:
     if: ${{ inputs.all || inputs.integration_tests }}
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
-      - run: echo "Integration tests"
-        #   run: ./scripts/testPrebidDemo.sh -l
-
-  summary:
-    needs: [build, unit_tests, smoke_ui_tests, integration_tests]
-    if: always()
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Done."
+      - run: ./scripts/testPrebidDemo.sh -l
