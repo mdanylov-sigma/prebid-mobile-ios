@@ -39,8 +39,8 @@ echo -e "\n\n${GREEN}RUN PREBID MOBILE TESTS${NC}\n\n"
 echo -e "\n${GREEN}Creating simulator${NC} \n"
 xcrun simctl create iPhone-16-Pro-PrebidMobile com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro
 
-echo -e "\n${GREEN}Clean build\n"
-xcodebuild clean build 
+# echo -e "\n${GREEN}Clean build\n"
+# xcodebuild clean build 
 
 if [ "$run_only_with_latest_ios" != "YES" ]
 then
