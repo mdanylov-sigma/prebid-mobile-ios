@@ -17,18 +17,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  docs-generation:
-    runs-on: macos-15
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install Jazzy
-        run: |
-          gem install jazzy
-      - name: Generate docs
-        run: |
-          jazzy
   # build:
   #   name: Build PrebidMobile Frameworks
   #   if: ${{ !github.event.pull_request.draft }}
@@ -38,25 +26,8 @@ jobs:
   #     - name: Checkout
   #       uses: actions/checkout@v4
 
-  #     # - name: Cache CocoaPods
-  #     #   id: pods-cache
-  #     #   uses: actions/cache@v4
-  #     #   with:
-  #     #     path: |
-  #     #       Pods
-  #     #       ~/.cocoapods
-  #     #     key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-  #     #     restore-keys: |
-  #     #       ${{ runner.os }}-pods-
-
-  #     # - name: Install CocoaPods
-  #     #   if: hashFiles('**/Podfile') != ''
-  #     #   run: |
-  #     #     pod install
-
   #     - name: Build Prebid Mobile Frameworks
-  #       run: echo "Build frameworks"
-  #       #   run: ./scripts/buildPrebidMobile.sh
+  #       run: ./scripts/buildPrebidMobile.sh
   #     - name: Upload logs on failure
   #       if: ${{ failure() }}
   #       uses: actions/upload-artifact@v4
@@ -65,48 +36,57 @@ jobs:
   #         path: generated/log/prebid_mobile_build.log
   #         retention-days: 1
 
-  # unit-test-pr:
-  #   name: Run Quick Unit Tests for Frameworks
-  #   if: ${{!github.event.pull_request.draft && !(contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
-  #   runs-on: macos-15
+  unit-test-pr:
+    name: Run Quick Unit Tests for Frameworks
+    if: ${{!github.event.pull_request.draft && !(contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
+    runs-on: macos-15
+    timeout-minutes: 10
 
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #     - name: Run Quick Unit Tests for Frameworks
-  #       run: echo "Run Quick Unit Tests"
-  #       #   run: ./scripts/testPrebidMobile.sh -l -q
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: changes
+        with:
+          filters: |
+            adapters:
+              - 'EventHandlers/**'
+      - name: Run Quick Unit Tests for Frameworks
+        env:
+          ADAPTERS_CHANGED: ${{ steps.changes.outputs.adapters }}
+        run: |
+          if [ "${ADAPTERS_CHANGED}" = "false" ]; then
+            ./scripts/testPrebidMobile.sh --latest --quick --skip-adapters
+          else
+            ./scripts/testPrebidMobile.sh --latest --quick
+          fi
+  unit-test-full:
+    name: Run All Unit Tests for Frameworks
+    if: ${{!github.event.pull_request.draft && (contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
+    runs-on: macos-15
 
-  # unit-test-full:
-  #   name: Run All Unit Tests for Frameworks
-  #   if: ${{!github.event.pull_request.draft && (contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
-  #   runs-on: macos-15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run All Unit Tests for Frameworks
+        run: ./scripts/testPrebidMobile.sh --latest
 
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #     - name: Run All Unit Tests for Frameworks
-  #       run: echo "Run All Unit Tests for Frameworks"
-  #       #   run: ./scripts/testPrebidMobile.sh -l
+  run-swift-demo-ui-tests:
+    name: Run Smoke UI Tests - Swift Demo App
+    if: ${{!github.event.pull_request.draft && (contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
+    runs-on: macos-15
 
-  # run-swift-demo-ui-tests:
-  #   name: Run Smoke UI Tests - Swift Demo App
-  #   if: ${{!github.event.pull_request.draft && (contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
-  #   runs-on: macos-15
-
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #     - name: Run Smoke UI Tests - Swift Demo App
-  #       run: echo "Run Smoke UI Tests"
-  #       #   run: ./scripts/testPrebidDemo.sh -ui -l
-  # run-swift-demo-integration-tests:
-  #   name: Run Integration Tests - Swift Demo App
-  #   if: ${{!github.event.pull_request.draft && (contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
-  #   runs-on: macos-15
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #     - name: Run Integration Tests - Swift Demo App
-  #       run: echo "Run Integration Tests"
-        #   run: ./scripts/testPrebidDemo.sh -l
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run Smoke UI Tests - Swift Demo App
+        run: ./scripts/testPrebidDemo.sh -ui -l
+  run-swift-demo-integration-tests:
+    name: Run Integration Tests - Swift Demo App
+    if: ${{!github.event.pull_request.draft && (contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
+    runs-on: macos-15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run Integration Tests - Swift Demo App
+        run: ./scripts/testPrebidDemo.sh -l
