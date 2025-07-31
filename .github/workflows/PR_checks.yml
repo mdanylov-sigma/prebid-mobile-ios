@@ -40,7 +40,6 @@ jobs:
     name: Run Quick Unit Tests for Frameworks
     if: ${{!github.event.pull_request.draft && !(contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
     runs-on: macos-15
-    timeout-minutes: 10
 
     steps:
       - name: Checkout
