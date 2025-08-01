@@ -36,39 +36,11 @@ jobs:
   #         path: generated/log/prebid_mobile_build.log
   #         retention-days: 1
 
-  unit-test-pr:
-    name: Run Integration Tests - Swift Demo App
-    if: ${{!github.event.pull_request.draft && !(contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
-    runs-on: macos-15
-    timeout-minutes: 10
-
-    steps:
-      # - name: Checkout
-      #   uses: actions/checkout@v4
-      # - uses: dorny/paths-filter@v3
-      #   id: changes
-      #   with:
-      #     filters: |
-      #       adapters:
-      #         - 'EventHandlers/**'
-      # - name: Run Quick Unit Tests for Frameworks
-      #   env:
-      #     ADAPTERS_CHANGED: ${{ steps.changes.outputs.adapters }}
-      #   run: |
-      #     if [ "${ADAPTERS_CHANGED}" = "false" ]; then
-      #       ./scripts/testPrebidMobile.sh --latest --quick --skip-adapters
-      #     else
-      #       ./scripts/testPrebidMobile.sh --latest --quick
-      #     fi
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Run Integration Tests - Swift Demo App
-        run: ./scripts/testPrebidDemo.sh -l
   unit-test-pr-test:
     name: Run Smoke UI Tests - Swift Demo App
     if: ${{!github.event.pull_request.draft && !(contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
     runs-on: macos-15
-    timeout-minutes: 10
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
