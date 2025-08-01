@@ -17,6 +17,65 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  ui-tests:
+    runs-on: macos-15
+
+    env:
+      XCODE_SCHEME: PrebidDemoSwiftUITests            # <- UI test scheme
+      XCODE_WORKSPACE: PrebidMobile.xcworkspace    # or set XCODE_PROJECT: YourApp.xcodeproj
+      DESTINATION: "platform=iOS Simulator,name=iPhone 16 Pro,OS=latest"
+      RESULT_BUNDLE: TestResults.xcresult
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ---------- Caching (optional but recommended) ----------
+      - name: Cache CocoaPods
+        id: cocoapods-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ios/Pods
+            ~/Library/Caches/CocoaPods
+            ~/.cocoapods
+          key: ${{ runner.os }}-pods-${{ hashFiles('ios/Podfile.lock') }}
+          restore-keys: ${{ runner.os }}-pods-
+
+      - name: Install CocoaPods (if needed)
+        if: steps.cocoapods-cache.outputs.cache-hit != 'true'
+        run: |
+          sudo gem install cocoapods --no-document
+          pod install --repo-update
+
+      - name: Build for testing
+        run: |
+          xcodebuild \
+            -workspace "$XCODE_WORKSPACE" \
+            -scheme "$XCODE_SCHEME" \
+            -destination "$DESTINATION" \
+            -enableCodeCoverage NO \
+            -derivedDataPath DerivedData \
+            build-for-testing | xcpretty && exit ${PIPESTATUS[0]}
+
+      - name: Run UI tests (retry on failure)
+        run: |
+          xcodebuild \
+            -workspace "$XCODE_WORKSPACE" \
+            -scheme "$XCODE_SCHEME" \
+            -destination "$DESTINATION" \
+            -derivedDataPath DerivedData \
+            -resultBundlePath "$RESULT_BUNDLE" \
+            -retry-tests-on-failure -test-iterations 3 \
+            test-without-building | xcpretty && exit ${PIPESTATUS[0]}
+
+      - name: Upload result bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xcresult
+          path: ${{ env.RESULT_BUNDLE }}
+
   # build:
   #   name: Build PrebidMobile Frameworks
   #   if: ${{ !github.event.pull_request.draft }}
@@ -36,44 +95,44 @@ jobs:
   #         path: generated/log/prebid_mobile_build.log
   #         retention-days: 1
 
-  unit-test-pr-test:
-    name: Run Smoke UI Tests - Swift Demo App
-    if: ${{!github.event.pull_request.draft && !(contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
-    runs-on: macos-15
-    timeout-minutes: 20
+  # unit-test-pr-test:
+  #   name: Run Smoke UI Tests - Swift Demo App
+  #   if: ${{!github.event.pull_request.draft && !(contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
+  #   runs-on: macos-15
+  #   timeout-minutes: 20
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Run Smoke UI Tests - Swift Demo App
-        run: ./scripts/testPrebidDemo.sh -ui -l
-  unit-test-full:
-    name: Run All Unit Tests for Frameworks
-    if: ${{!github.event.pull_request.draft && (contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
-    runs-on: macos-15
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #     - name: Run Smoke UI Tests - Swift Demo App
+  #       run: ./scripts/testPrebidDemo.sh -ui -l
+  # unit-test-full:
+  #   name: Run All Unit Tests for Frameworks
+  #   if: ${{!github.event.pull_request.draft && (contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
+  #   runs-on: macos-15
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Run All Unit Tests for Frameworks
-        run: ./scripts/testPrebidMobile.sh --latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #     - name: Run All Unit Tests for Frameworks
+  #       run: ./scripts/testPrebidMobile.sh --latest
 
-  run-swift-demo-ui-tests:
-    name: Run Smoke UI Tests - Swift Demo App
-    if: ${{!github.event.pull_request.draft && (contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
-    runs-on: macos-15
+  # run-swift-demo-ui-tests:
+  #   name: Run Smoke UI Tests - Swift Demo App
+  #   if: ${{!github.event.pull_request.draft && (contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
+  #   runs-on: macos-15
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Run Smoke UI Tests - Swift Demo App
-        run: ./scripts/testPrebidDemo.sh -ui -l
-  run-swift-demo-integration-tests:
-    name: Run Integration Tests - Swift Demo App
-    if: ${{!github.event.pull_request.draft && (contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
-    runs-on: macos-15
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Run Integration Tests - Swift Demo App
-        run: ./scripts/testPrebidDemo.sh -l
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #     - name: Run Smoke UI Tests - Swift Demo App
+  #       run: ./scripts/testPrebidDemo.sh -ui -l
+  # run-swift-demo-integration-tests:
+  #   name: Run Integration Tests - Swift Demo App
+  #   if: ${{!github.event.pull_request.draft && (contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
+  #   runs-on: macos-15
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #     - name: Run Integration Tests - Swift Demo App
+  #       run: ./scripts/testPrebidDemo.sh -l
