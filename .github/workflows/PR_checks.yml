@@ -61,6 +61,7 @@ jobs:
 
       - name: Run UI tests (retry on failure)
         run: |
+          defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool NO
           xcodebuild \
             -workspace "$XCODE_WORKSPACE" \
             -scheme "$XCODE_SCHEME" \
