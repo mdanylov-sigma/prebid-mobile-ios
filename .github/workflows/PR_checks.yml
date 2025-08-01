@@ -37,9 +37,10 @@ jobs:
   #         retention-days: 1
 
   unit-test-pr:
-    name: Run Quick Unit Tests for Frameworks
+    name: Run Integration Tests - Swift Demo App
     if: ${{!github.event.pull_request.draft && !(contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
     runs-on: macos-15
+    timeout-minutes: 10
 
     steps:
       # - name: Checkout
@@ -61,10 +62,19 @@ jobs:
       #     fi
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Run Smoke UI Tests - Swift Demo App
-        run: ./scripts/testPrebidDemo.sh -ui -l
       - name: Run Integration Tests - Swift Demo App
         run: ./scripts/testPrebidDemo.sh -l
+  unit-test-pr-test:
+    name: Run Smoke UI Tests - Swift Demo App
+    if: ${{!github.event.pull_request.draft && !(contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
+    runs-on: macos-15
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run Smoke UI Tests - Swift Demo App
+        run: ./scripts/testPrebidDemo.sh -ui -l
   unit-test-full:
     name: Run All Unit Tests for Frameworks
     if: ${{!github.event.pull_request.draft && (contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
