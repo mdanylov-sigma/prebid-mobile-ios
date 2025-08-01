@@ -23,7 +23,7 @@ jobs:
     env:
       XCODE_SCHEME: PrebidDemoSwiftUITests            # <- UI test scheme
       XCODE_WORKSPACE: PrebidMobile.xcworkspace    # or set XCODE_PROJECT: YourApp.xcodeproj
-      DESTINATION: "platform=iOS Simulator,name=iPhone 16 Pro,OS=latest"
+      DESTINATION: "platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=latest"
       RESULT_BUNDLE: TestResults.xcresult
 
     steps:
@@ -51,6 +51,8 @@ jobs:
 
       - name: Build for testing
         run: |
+          xcrun simctl create iPhone-16-Pro-PrebidMobile com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro
+
           xcodebuild \
             -workspace "$XCODE_WORKSPACE" \
             -scheme "$XCODE_SCHEME" \
@@ -69,7 +71,10 @@ jobs:
             -derivedDataPath DerivedData \
             -resultBundlePath "$RESULT_BUNDLE" \
             -retry-tests-on-failure -test-iterations 3 \
+            -only-testing:PrebidDemoSwiftUITests \
             test-without-building | xcpretty && exit ${PIPESTATUS[0]}
+  
+            xcrun simctl delete iPhone-16-Pro-PrebidMobile
 
       - name: Upload result bundle
         if: always()
@@ -77,6 +82,7 @@ jobs:
         with:
           name: xcresult
           path: ${{ env.RESULT_BUNDLE }}
+      
 
   # build:
   #   name: Build PrebidMobile Frameworks
