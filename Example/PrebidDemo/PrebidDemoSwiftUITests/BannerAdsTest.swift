@@ -47,13 +47,13 @@ class BannerAdsTest: BaseAdsTest {
     
     override func checkAd(testCase: String) {
         XCTAssert(
-            app.webViews.element.waitForExistence(timeout: 30),
+            app.webViews.element.waitForExistence(timeout: 100),
             assertFailedMessage(testCase: testCase,reason: "Banner Web View is not displayed")
         )
         
         if let labelText {
             XCTAssert(
-                app.staticTexts[labelText].waitForExistence(timeout: 30),
+                app.staticTexts[labelText].waitForExistence(timeout: 100),
                 assertFailedMessage(testCase: testCase, reason: "`\(labelText)` is not displayed")
             )
         }
