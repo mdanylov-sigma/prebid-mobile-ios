@@ -20,22 +20,24 @@ jobs:
   build:
     name: Build PrebidMobile Frameworks
     if: ${{ !github.event.pull_request.draft }}
-    runs-on: macos-15
+    runs-on: macos-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # - name: Select Xcode
-      #   uses: maxim-lobanov/setup-xcode@v1
-      #   with:
-      #     xcode-version: "16.1"
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "16.1.0"
 
       - name: Build Prebid Mobile Frameworks
         #run: ./scripts/buildPrebidMobile.sh
         run: |
           gem install cocoapods
           pod install --repo-update
+
+          # xcrun simctl list
 
           xcodebuild archive \
           only_active_arch=NO \
@@ -44,10 +46,8 @@ jobs:
           BUILD_LIBRARY_FOR_DISTRIBUTION=YES \
           -workspace PrebidMobile.xcworkspace \
           -scheme 'Lib-PrebidMobile' \
+          -destination "generic/platform=iOS Simulator" \
           -configuration Release \
-          -sdk 'iphonesimulator' \
-          -arch x86_64 \
-          -arch arm64
 
       # -archivePath "$XCODE_ARCHIVE_DIR/${schemes[$n]}.xcarchive"
       # - name: Upload logs on failure
@@ -57,6 +57,10 @@ jobs:
       #     name: logs-${{ github.run_id }}
       #     path: generated/log/prebid_mobile_build.log
       #     retention-days: 1
+
+          #       -sdk 'iphonesimulator' \
+          # -arch x86_64 \
+          # -arch arm64
 
   # unit-test-pr:
   #   name: Run Quick Unit Tests for Frameworks
