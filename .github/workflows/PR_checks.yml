@@ -23,15 +23,15 @@ jobs:
   build:
     name: Build PrebidMobile Frameworks
     if: ${{ !github.event.pull_request.draft }}
-    runs-on: macos-latest
+    runs-on: macos-26
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Select Xcode
-        uses: maxim-lobanov/setup-xcode@v1
-        with: 
-          xcode-version: ${{ env.XCODE_VERSION }}
+      # - name: Select Xcode
+      #   uses: maxim-lobanov/setup-xcode@v1
+      #   with: 
+      #     xcode-version: ${{ env.XCODE_VERSION }}
       - name: Build Prebid Mobile Frameworks
         run: ./scripts/buildPrebidMobile.sh
       - name: Upload logs on failure
@@ -45,15 +45,15 @@ jobs:
   unit-test-pr:
     name: Run Quick Unit Tests for Frameworks
     if: ${{!github.event.pull_request.draft && !(contains(github.head_ref, 'bump-to') || contains(toJson(github.event.pull_request.labels), 'run-full-tests'))}}
-    runs-on: macos-latest
+    runs-on: macos-26
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Select Xcode
-        uses: maxim-lobanov/setup-xcode@v1
-        with: 
-          xcode-version: ${{ env.XCODE_VERSION }}        
+      # - name: Select Xcode
+      #   uses: maxim-lobanov/setup-xcode@v1
+      #   with: 
+      #     xcode-version: ${{ env.XCODE_VERSION }}        
       - uses: dorny/paths-filter@v3
         id: changes
         with:
