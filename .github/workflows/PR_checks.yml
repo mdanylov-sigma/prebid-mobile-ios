@@ -17,7 +17,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  XCODE_VERSION: "16.1.0"
+  XCODE_VERSION: "16.4.0"
 
 jobs:
   build:
