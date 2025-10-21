@@ -6,7 +6,7 @@ Visit the [Prebid documentation](https://docs.prebid.org/prebid-mobile/pbm-api/i
 
 ## Use SPM?
 
-Starting from version `3.1.0`, PrebidMobile supports Swift Package Manager (SPM), making integration much easier and more maintainable compared to manual setups or CocoaPods.
+Starting from version `3.1.1`, PrebidMobile supports Swift Package Manager (SPM), making integration much easier and more maintainable compared to manual setups or CocoaPods.
 
 To [add the Prebid Mobile SDK package dependency](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app#Add-a-package-dependency) using SPM, follow these steps:
 
