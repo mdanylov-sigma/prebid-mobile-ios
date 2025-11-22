@@ -8,20 +8,20 @@ NC='\033[0m' # No Color
 echo -e "\n\n${GREEN}RUN PREBID DEMO TESTS${NC}\n\n"
 
 echo -e "\n${GREEN}Creating simulator${NC} \n"
-xcrun simctl create iPhone-16-Pro-PrebidMobile com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro
+xcrun simctl create iPhone-16-Pro-PrebidMobile com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro com.apple.CoreSimulator.SimRuntime.iOS-18-6
 
 cd ..
 echo $PWD
 
 export PATH="/Users/distiller/.gem/ruby/2.7.0/bin:$PATH"
-brew install xcbeautify
+# brew install xcbeautify
 gem install cocoapods
 
 pod deintegrate
 pod install --repo-update
 pod update
 
-brew install xcbeautify
+# brew install xcbeautify
 
 if [ "$1" == "-ui" ]; then
     echo -e "\n${GREEN}Running UI tests${NC} \n"
@@ -33,12 +33,35 @@ else
     TEST="Integration"
 fi
 
-xcodebuild test \
-    -workspace PrebidMobile.xcworkspace \
-    -scheme $SCHEME \
-    -test-iterations 2 \
-    -retry-tests-on-failure \
-    -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=latest' | xcbeautify
+    echo -e "\n${GREEN}BUILD${NC} \n"
+
+    xcodebuild \
+        -workspace PrebidMobile.xcworkspace \
+        -scheme $SCHEME \
+        -sdk iphonesimulator \
+        -configuration Debug \
+        -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.6' \
+        -destination-timeout 60 \
+        build-for-testing
+
+    echo -e "\n${GREEN}TEST${NC} \n"
+
+    xcodebuild \
+        -workspace PrebidMobile.xcworkspace \
+        -scheme $SCHEME \
+        -sdk iphonesimulator \
+        -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.6' \
+        -destination-timeout 60 \
+        -test-iterations 2 \
+        -retry-tests-on-failure \
+        test-without-building 
+
+# xcodebuild test \
+#     -workspace PrebidMobile.xcworkspace \
+#     -scheme $SCHEME \
+#     -test-iterations 2 \
+#     -retry-tests-on-failure \
+#     -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.6'
 
 if [[ ${PIPESTATUS[0]} == 0 ]]; then
     echo "✅ ${TEST} Tests Passed"

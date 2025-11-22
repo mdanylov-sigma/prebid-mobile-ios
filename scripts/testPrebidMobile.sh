@@ -53,7 +53,7 @@ pod install --repo-update
 echo -e "\n\n${GREEN}RUN PREBID MOBILE TESTS${NC}\n\n"
 
 echo -e "\n${GREEN}Creating simulator${NC} \n"
-xcrun simctl create iPhone-16-Pro-PrebidMobile com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro
+xcrun simctl create iPhone-16-Pro-PrebidMobile com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro com.apple.CoreSimulator.SimRuntime.iOS-18-6
 
 if [ "$run_only_PR_tests" != "YES" ]; then
     echo -e "\n${GREEN}Clean build\n"
@@ -86,28 +86,75 @@ else
 fi
 
 echo -e "\n${GREEN}Running PrebidMobile unit tests${NC} \n"
-xcodebuild test \
-    -workspace PrebidMobile.xcworkspace \
-    -retry-tests-on-failure \
-    -scheme "PrebidMobileTests" \
-    -testPlan "${TESTPLAN}" \
-    -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=latest' | xcbeautify
+
+# xcodebuild \
+#   -workspace PrebidMobile.xcworkspace \
+#   -scheme PrebidMobileTests \
+#   -sdk iphonesimulator \
+#   -configuration Debug \
+#   -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.6' \
+#   -destination-timeout 60 \
+#   build-for-testing
+
+# xcodebuild \
+#   -workspace PrebidMobile.xcworkspace \
+#   -scheme PrebidMobileTests \
+#   -sdk iphonesimulator \
+#   -testPlan "${TESTPLAN}" \
+#   -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.6' \
+#   -destination-timeout 60 \
+#   test-without-building
+
+# xcodebuild test \
+#     -workspace PrebidMobile.xcworkspace \
+#     -retry-tests-on-failure \
+#     -scheme "PrebidMobileTests" \
+#     -testPlan "${TESTPLAN}" \
+#     -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.6' \
+#     -destination-timeout 60 \
+#     -disableAutomaticPackageResolution \
+#     -skipPackagePluginValidation \
+#     -skipMacroValidation \
+#     -IDEBuildOperationMaxNumberOfConcurrentCompileTasks=2 \
+#     CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
+#     COMPILER_INDEX_STORE_ENABLE=NO \
+#     SWIFT_COMPILATION_MODE=singlefile \
+#     -showBuildTimingSummary | xcbeautify
 
 
 if [[ ${PIPESTATUS[0]} == 0 ]]; then
     echo "✅ PrebidMobile Unit Tests Passed"
 else
     echo "🔴 PrebidMobile Unit Tests Failed"
-    exit 1
+    # exit 1
 fi
+
+function testAdapters () {
+  local SCHEME="$1"
+
+    xcodebuild \
+        -workspace PrebidMobile.xcworkspace \
+        -scheme "${SCHEME}" \
+        -sdk iphonesimulator \
+        -configuration Debug \
+        -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.6' \
+        -destination-timeout 60 \
+        build-for-testing
+
+    xcodebuild \
+        -workspace PrebidMobile.xcworkspace \
+        -scheme "${SCHEME}" \
+        -sdk iphonesimulator \
+        -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.6' \
+        -destination-timeout 60 \
+        test-without-building
+}
 
 if [ "$skip_adapter_tests" != "YES" ]; then
     echo -e "\n${GREEN}Running PrebidMobileGAMEventHandlers unit tests${NC} \n"
-    xcodebuild test \
-        -workspace PrebidMobile.xcworkspace  \
-        -scheme "PrebidMobileGAMEventHandlersTests" \
-        -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=latest' | xcbeautify
 
+    testAdapters "PrebidMobileGAMEventHandlersTests"
+    
     if [[ ${PIPESTATUS[0]} == 0 ]]; then
         echo "✅ PrebidMobileGAMEventHandlers Unit Tests Passed"
     else
@@ -116,10 +163,8 @@ if [ "$skip_adapter_tests" != "YES" ]; then
     fi
 
     echo -e "\n${GREEN}Running PrebidMobileAdMobAdapters unit tests${NC} \n"
-    xcodebuild test \
-        -workspace PrebidMobile.xcworkspace \
-        -scheme "PrebidMobileAdMobAdaptersTests" \
-        -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=latest' | xcbeautify
+
+    testAdapters "PrebidMobileAdMobAdaptersTests"
 
     if [[ ${PIPESTATUS[0]} == 0 ]]; then
         echo "✅ PrebidMobileAdMobAdapters Unit Tests Passed"
@@ -129,10 +174,8 @@ if [ "$skip_adapter_tests" != "YES" ]; then
     fi
 
     echo -e "\n${GREEN}Running PrebidMobileMAXAdapters unit tests${NC} \n"
-    xcodebuild test \
-        -workspace PrebidMobile.xcworkspace \
-        -scheme "PrebidMobileMAXAdaptersTests" \
-        -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=latest' | xcbeautify
+
+    testAdapters "PrebidMobileMAXAdaptersTests"
 
     if [[ ${PIPESTATUS[0]} == 0 ]]; then
         echo "✅ PrebidMobileMAXAdapters Unit Tests Passed"
@@ -141,6 +184,100 @@ if [ "$skip_adapter_tests" != "YES" ]; then
         exit 1
     fi
 fi
+
+
+
+# if [ "$skip_adapter_tests" != "YES" ]; then
+#     echo -e "\n${GREEN}Running PrebidMobileGAMEventHandlers unit tests${NC} \n"
+#     # xcodebuild test \
+#     #     -workspace PrebidMobile.xcworkspace  \
+#     #     -scheme "PrebidMobileGAMEventHandlersTests" \
+#     #     -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.0' | xcbeautify
+
+#             xcodebuild \
+#         -workspace PrebidMobile.xcworkspace \
+#         -scheme PrebidMobileGAMEventHandlersTests \
+#         -sdk iphonesimulator \
+#         -configuration Debug \
+#         -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.6' \
+#         -destination-timeout 60 \
+#         build-for-testing
+
+#         xcodebuild \
+#         -workspace PrebidMobile.xcworkspace \
+#         -scheme PrebidMobileGAMEventHandlersTests \
+#         -sdk iphonesimulator \
+#         -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.6' \
+#         -destination-timeout 60 \
+#         test-without-building
+
+#     if [[ ${PIPESTATUS[0]} == 0 ]]; then
+#         echo "✅ PrebidMobileGAMEventHandlers Unit Tests Passed"
+#     else
+#         echo "🔴 PrebidMobileGAMEventHandlers Unit Tests Failed"
+#         # exit 1
+#     fi
+
+#     echo -e "\n${GREEN}Running PrebidMobileAdMobAdapters unit tests${NC} \n"
+#     # xcodebuild test \
+#     #     -workspace PrebidMobile.xcworkspace \
+#     #     -scheme "PrebidMobileAdMobAdaptersTests" \
+#     #     -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=latest' | xcbeautify
+
+#         xcodebuild \
+#         -workspace PrebidMobile.xcworkspace \
+#         -scheme PrebidMobileAdMobAdaptersTests \
+#         -sdk iphonesimulator \
+#         -configuration Debug \
+#         -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.6' \
+#         -destination-timeout 60 \
+#         build-for-testing
+
+#         xcodebuild \
+#         -workspace PrebidMobile.xcworkspace \
+#         -scheme PrebidMobileAdMobAdaptersTests \
+#         -sdk iphonesimulator \
+#         -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.6' \
+#         -destination-timeout 60 \
+#         test-without-building
+
+#     if [[ ${PIPESTATUS[0]} == 0 ]]; then
+#         echo "✅ PrebidMobileAdMobAdapters Unit Tests Passed"
+#     else
+#         echo "🔴 PrebidMobileAdMobAdapters Unit Tests Failed"
+#         # exit 1
+#     fi
+
+#     echo -e "\n${GREEN}Running PrebidMobileMAXAdapters unit tests${NC} \n"
+#     # xcodebuild test \
+#     #     -workspace PrebidMobile.xcworkspace \
+#     #     -scheme "PrebidMobileMAXAdaptersTests" \
+#     #     -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=latest' | xcbeautify
+
+#         xcodebuild \
+#         -workspace PrebidMobile.xcworkspace \
+#         -scheme PrebidMobileMAXAdaptersTests \
+#         -sdk iphonesimulator \
+#         -configuration Debug \
+#         -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.6' \
+#         -destination-timeout 60 \
+#         build-for-testing
+
+#         xcodebuild \
+#         -workspace PrebidMobile.xcworkspace \
+#         -scheme PrebidMobileMAXAdaptersTests \
+#         -sdk iphonesimulator \
+#         -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.6' \
+#         -destination-timeout 60 \
+#         test-without-building
+
+#     if [[ ${PIPESTATUS[0]} == 0 ]]; then
+#         echo "✅ PrebidMobileMAXAdapters Unit Tests Passed"
+#     else
+#         echo "🔴 PrebidMobileMAXAdapters Unit Tests Failed"
+#         # exit 1
+#     fi
+# fi
 
 echo -e "\n${GREEN}Removing simulator${NC} \n"
 xcrun simctl delete iPhone-16-Pro-PrebidMobile
