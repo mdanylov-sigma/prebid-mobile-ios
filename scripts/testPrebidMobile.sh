@@ -53,7 +53,7 @@ pod install --repo-update
 echo -e "\n\n${GREEN}RUN PREBID MOBILE TESTS${NC}\n\n"
 
 echo -e "\n${GREEN}Creating simulator${NC} \n"
-xcrun simctl create iPhone-16-Pro-PrebidMobile com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro com.apple.CoreSimulator.SimRuntime.iOS-18-6
+xcrun simctl create iPhone-16-Pro-PrebidMobile com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro
 
 if [ "$run_only_PR_tests" != "YES" ]; then
     echo -e "\n${GREEN}Clean build\n"
@@ -137,7 +137,7 @@ function testAdapters () {
         -scheme "${SCHEME}" \
         -sdk iphonesimulator \
         -configuration Debug \
-        -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.6' \
+        -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=latest' \
         -destination-timeout 60 \
         build-for-testing
 
@@ -145,7 +145,7 @@ function testAdapters () {
         -workspace PrebidMobile.xcworkspace \
         -scheme "${SCHEME}" \
         -sdk iphonesimulator \
-        -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=18.6' \
+        -destination 'platform=iOS Simulator,name=iPhone-16-Pro-PrebidMobile,OS=latest' \
         -destination-timeout 60 \
         test-without-building
 }
