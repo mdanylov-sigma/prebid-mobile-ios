@@ -1,0 +1,252 @@
+name: Sync PrebidMobile -> Core & Adapters
+
+on:
+  pull_request:
+    # branches: [main]
+    # types: [closed]
+
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version tag to use (e.g. 3.1.0)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: read
+  
+
+concurrency:
+  group: sync-split-repos-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  CORE_REPO: mdanylov-sigma/ios-spm
+  ADAPTERS_REPO: mdanylov-sigma/ios-adapters-spm
+
+  TARGET_BRANCH: main
+  GH_TOKEN_SOURCE: ${{ github.token }}
+  GH_TOKEN: ${{ secrets.SYNC_TOKEN }}
+
+  XCODE_VERSION: "16.4.0"
+
+jobs:
+  # resolve_version:
+  #   runs-on: ubuntu-latest
+  #   outputs:
+  #     version: ${{ steps.version.outputs.version }}
+  #     should_run: ${{ steps.version.outputs.should_run }}
+  #   steps:
+  #     - name: Resolve version
+  #       id: version
+  #       shell: bash
+  #       run: |
+  #         set -euo pipefail
+
+  #         ##### Extract version for manual run
+  #         if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+  #           v="${{ inputs.version }}"
+  #           [[ -n "$v" ]] || { echo "version input is required"; exit 1; }
+  #           echo "version=$v" >> "$GITHUB_OUTPUT"
+  #           echo "should_run=true" >> "$GITHUB_OUTPUT"
+  #           exit 0
+  #         fi
+
+  #         ##### Extract version for PR merged to main
+  #         # if [[ "${{ github.event.pull_request.merged }}" != "true" ]]; then
+  #         #   echo "should_run=false" >> "$GITHUB_OUTPUT"
+  #         #   exit 0
+  #         # fi
+
+  #         head_ref="${{ github.event.pull_request.head.ref }}"  # e.g. release-3.1.0
+  #         if [[ "$head_ref" =~ ^release-([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+  #           echo "version=${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
+  #           echo "should_run=true" >> "$GITHUB_OUTPUT"
+  #         else
+  #           echo "should_run=false" >> "$GITHUB_OUTPUT"
+  #         fi
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PrebidMobile repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: source
+      - name: Compute tag + previous tag (source repo)
+        id: tags
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG="3.2.0"
+
+          cd source
+
+          # Find previous semver tag (excluding current). Adjust pattern if you use v-prefix.
+          semver_regex='^(v)?[0-9]+\.[0-9]+\.[0-9]+$'
+          prev_tag="$(
+            git tag --list --sort=-v:refname \
+            | grep -E "$semver_regex" \
+            | grep -vx "$TAG" \
+            | head -n 1 \
+            || true
+          )"
+
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "prev_tag=$prev_tag" >> "$GITHUB_OUTPUT"
+
+          echo "Current tag: $TAG"
+          echo "Previous tag: ${prev_tag:-<none>}"
+      - name: Generate GitHub "auto-generated release notes" (from source repo)
+        shell: bash
+        env:
+          GH_TOKEN_SOURCE: ${{ env.GH_TOKEN_SOURCE }}
+          GH_TOKEN: ${{ env.GH_TOKEN }}
+        run: |
+          set -euo pipefail
+          TAG="${{ steps.tags.outputs.tag }}"
+          PREV="${{ steps.tags.outputs.prev_tag }}"
+
+          UPSTREAM_REPO="prebid/prebid-mobile-ios"   # owner/repo
+          TARGET_COMMITISH="master"               # or a commit SHA that exists in upstream
+
+          gh api "repos/${UPSTREAM_REPO}/releases/generate-notes" \
+            -f tag_name="$TAG" \
+            -f target_commitish="$TARGET_COMMITISH" \
+            -f previous_tag_name="$PREV" \
+            --jq '.body' > release_notes.md
+
+          # # This calls the same generator GitHub uses for "Auto-generate release notes"
+          # # If PREV is empty, omit previous_tag_name.
+          # if [[ -n "$PREV" ]]; then
+          #   gh api "repos/${GITHUB_REPOSITORY}/releases/generate-notes" \
+          #     -f tag_name="$TAG" \
+          #     -f target_commitish="${GITHUB_SHA}" \
+          #     -f previous_tag_name="$PREV" \
+          #     --jq '.body' > release_notes.md
+          # else
+          #   gh api "repos/${GITHUB_REPOSITORY}/releases/generate-notes" \
+          #     -f tag_name="$TAG" \
+          #     -f target_commitish="${GITHUB_SHA}" \
+          #     --jq '.body' > release_notes.md
+          # fi
+
+          # Optional: add a header/title
+          {
+            echo "# ${TAG}"
+            echo
+            cat release_notes.md
+          } > release_notes_with_header.md
+          mv release_notes_with_header.md release_notes.md
+
+          echo "----- CHANGELOG -----"
+          cat release_notes.md
+          echo "---------------------"
+  build:
+    name: Build PrebidMobile SPM demo
+    runs-on: macos-15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with: 
+          xcode-version: ${{ env.XCODE_VERSION }}
+      - name: Build Prebid Mobile Frameworks
+        run: ./scripts/buildPrebidSPM.sh
+      - name: Upload logs on failure
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-${{ github.run_id }}
+          path: generated/log/prebid_mobile_build.log
+          retention-days: 1
+
+  
+  # sync_core:
+  #   needs: resolve_version
+  #   if: needs.resolve_version.outputs.should_run == 'true'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout PrebidMobile repo
+  #       uses: actions/checkout@v4
+  #       with:
+  #         fetch-depth: 0
+  #         path: source
+
+  #     - name: Checkout target core repo
+  #       uses: actions/checkout@v4
+  #       with:
+  #         repository: ${{ env.CORE_REPO }}
+  #         token: ${{ secrets.SYNC_TOKEN }}
+  #         ref: ${{ env.TARGET_BRANCH }}
+  #         fetch-depth: 0
+  #         path: core
+
+  #     - name: Sync core content (Frameworks/, PrebidMobile/, Package.swift)
+  #       shell: bash
+  #       run: |
+  #         set -euo pipefail
+
+  #         rsync -a --delete "source/Frameworks/"  "core/Frameworks/"
+  #         rsync -a --delete "source/PrebidMobile/" "core/PrebidMobile/"
+  #         cp -f "source/PrebidMobile/Package.swift" "core/Package.swift"
+
+  #     - name: Commit & tag core
+  #       shell: bash
+  #       env:
+  #         VERSION: ${{ needs.resolve_version.outputs.version }}
+  #         TARGET_BRANCH: ${{ env.TARGET_BRANCH }}
+  #       run: |
+  #         set -euo pipefail
+
+  #         "source/scripts/publishSPM.sh" \
+  #         "core" \
+  #         "${{ needs.resolve_version.outputs.version }}" \
+  #         "${{ env.TARGET_BRANCH }}"
+
+  # sync_adapters:
+  #   needs: [resolve_version, sync_core]
+  #   if: needs.resolve_version.outputs.should_run == 'true'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout source repo (PrebidMobile)
+  #       uses: actions/checkout@v4
+  #       with:
+  #         fetch-depth: 0
+  #         path: source
+
+  #     - name: Checkout target adapters repo
+  #       uses: actions/checkout@v4
+  #       with:
+  #         repository: ${{ env.ADAPTERS_REPO }}
+  #         token: ${{ secrets.SYNC_TOKEN }}
+  #         ref: ${{ env.TARGET_BRANCH }}
+  #         fetch-depth: 0
+  #         path: adapters
+
+  #     - name: Sync adapters content (AdMob, GAM EventHandlers, MAX, Package.swift)
+  #       shell: bash
+  #       run: |
+  #         set -euo pipefail
+
+  #         rsync -a --delete "source/EventHandlers/PrebidMobileAdMobAdapters/" "adapters/PrebidMobileAdMobAdapters/"
+  #         rsync -a --delete "source/EventHandlers/PrebidMobileMAXAdapters/"   "adapters/PrebidMobileMAXAdapters/"
+  #         rsync -a --delete "source/EventHandlers/PrebidMobileGAMEventHandlers/" "adapters/PrebidMobileGAMEventHandlers/"
+
+  #         cp -f "source/EventHandlers/Package.swift" "adapters/Package.swift"
+
+  #     - name: Commit & tag adapters
+  #       shell: bash
+  #       env:
+  #         VERSION: ${{ needs.resolve_version.outputs.version }}
+  #         TARGET_BRANCH: ${{ env.TARGET_BRANCH }}
+  #       run: |
+  #         set -euo pipefail
+
+  #         "source/scripts/publishSPM.sh" \
+  #         "adapters" \
+  #         "${{ needs.resolve_version.outputs.version }}" \
+  #         "${{ env.TARGET_BRANCH }}"

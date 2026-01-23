@@ -260,6 +260,9 @@
 		C38D69C829362B7700E82B31 /* InterstitialAdsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D69C229362B7700E82B31 /* InterstitialAdsTest.swift */; };
 		C38D69C929362B7700E82B31 /* TestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38D69C429362B7700E82B31 /* TestCases.swift */; };
 		C3ACBEAF2937A6DE00A9BAE2 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ACBEAE2937A6DE00A9BAE2 /* UIApplication+Extensions.swift */; };
+		E5CBD3442F26510900C524C1 /* PrebidMobileAdMobAdapters in Frameworks */ = {isa = PBXBuildFile; productRef = E5CBD3432F26510900C524C1 /* PrebidMobileAdMobAdapters */; };
+		E5CBD3462F26510900C524C1 /* PrebidMobileGAMEventHandlers in Frameworks */ = {isa = PBXBuildFile; productRef = E5CBD3452F26510900C524C1 /* PrebidMobileGAMEventHandlers */; };
+		E5CBD3482F26510900C524C1 /* PrebidMobileMAXAdapters in Frameworks */ = {isa = PBXBuildFile; productRef = E5CBD3472F26510900C524C1 /* PrebidMobileMAXAdapters */; };
 		FA12E4F0231EB53A00CAA05B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12E4E0231EB4BB00CAA05B /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -591,11 +594,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5CBD3442F26510900C524C1 /* PrebidMobileAdMobAdapters in Frameworks */,
 				0012D9122E215435007013F3 /* PrebidMobileGAMEventHandlers in Frameworks */,
+				E5CBD3462F26510900C524C1 /* PrebidMobileGAMEventHandlers in Frameworks */,
 				0012D9262E2159C0007013F3 /* GoogleInteractiveMediaAds in Frameworks */,
 				0012D9102E215435007013F3 /* PrebidMobileAdMobAdapters in Frameworks */,
 				0012D90E2E215435007013F3 /* PrebidMobile in Frameworks */,
 				0012D9142E215435007013F3 /* PrebidMobileMAXAdapters in Frameworks */,
+				E5CBD3482F26510900C524C1 /* PrebidMobileMAXAdapters in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1464,8 +1470,8 @@
 			);
 			mainGroup = FA12E452231E9C5900CAA05B;
 			packageReferences = (
-				0012D90C2E215435007013F3 /* XCRemoteSwiftPackageReference "prebid-mobile-ios" */,
 				0012D9242E2159C0007013F3 /* XCRemoteSwiftPackageReference "swift-package-manager-google-interactive-media-ads-ios" */,
+				E5CBD3422F26510900C524C1 /* XCRemoteSwiftPackageReference "ios-adapters-spm" */,
 			);
 			productRefGroup = FA12E45C231E9C5900CAA05B /* Products */;
 			projectDirPath = "";
@@ -1598,9 +1604,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PrebidDemoObjectiveC/Pods-PrebidDemoObjectiveC-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PrebidDemoObjectiveC/Pods-PrebidDemoObjectiveC-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1615,9 +1625,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PrebidDemoSwift/Pods-PrebidDemoSwift-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PrebidDemoSwift/Pods-PrebidDemoSwift-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1632,9 +1646,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PrebidDemoSwift/Pods-PrebidDemoSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PrebidDemoSwift/Pods-PrebidDemoSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1649,9 +1667,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PrebidDemoObjectiveC/Pods-PrebidDemoObjectiveC-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PrebidDemoObjectiveC/Pods-PrebidDemoObjectiveC-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2451,6 +2473,14 @@
 				kind = branch;
 			};
 		};
+		E5CBD3422F26510900C524C1 /* XCRemoteSwiftPackageReference "ios-adapters-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mdanylov-sigma/ios-adapters-spm.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2478,6 +2508,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0012D9242E2159C0007013F3 /* XCRemoteSwiftPackageReference "swift-package-manager-google-interactive-media-ads-ios" */;
 			productName = GoogleInteractiveMediaAds;
+		};
+		E5CBD3432F26510900C524C1 /* PrebidMobileAdMobAdapters */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5CBD3422F26510900C524C1 /* XCRemoteSwiftPackageReference "ios-adapters-spm" */;
+			productName = PrebidMobileAdMobAdapters;
+		};
+		E5CBD3452F26510900C524C1 /* PrebidMobileGAMEventHandlers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5CBD3422F26510900C524C1 /* XCRemoteSwiftPackageReference "ios-adapters-spm" */;
+			productName = PrebidMobileGAMEventHandlers;
+		};
+		E5CBD3472F26510900C524C1 /* PrebidMobileMAXAdapters */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5CBD3422F26510900C524C1 /* XCRemoteSwiftPackageReference "ios-adapters-spm" */;
+			productName = PrebidMobileMAXAdapters;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
