@@ -175,7 +175,7 @@ jobs:
         with:
           fetch-depth: 0
           path: source
-      - name: Compute tag + previous tag (source repo)
+      - name: Compute tag + previous tag
         id: tags
         shell: bash
         run: |
@@ -195,7 +195,8 @@ jobs:
           )"
 
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
-          echo "prev_tag=$prev_tag" >> "$GITHUB_OUTPUT"
+          # echo "prev_tag=$prev_tag" >> "$GITHUB_OUTPUT"
+          echo "prev_tag=3.1.0" >> "$GITHUB_OUTPUT"
 
           echo "Current tag: $TAG"
           echo "Previous tag: ${prev_tag:-<none>}"
