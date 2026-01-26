@@ -180,6 +180,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          #TAG="${VERSION}"
+
           TAG="3.2.0"
 
           cd source
@@ -252,7 +254,8 @@ jobs:
           GH_TOKEN: ${{ env.GH_TOKEN_SYNC }}
         run: |
           set -euo pipefail
-          TAG="${{ steps.tags.outputs.tag }}"
+          # TAG="${{ steps.tags.outputs.tag }}"
+          TAG="${VERSION}"
 
           if gh release view "$TAG" --repo "$CORE_REPO" >/dev/null 2>&1; then
             gh release edit "$TAG" --repo "$CORE_REPO" --notes-file release_notes.md
@@ -266,7 +269,8 @@ jobs:
           GH_TOKEN: ${{ env.GH_TOKEN_SYNC }}
         run: |
           set -euo pipefail
-          TAG="${{ steps.tags.outputs.tag }}"
+          #TAG="${{ steps.tags.outputs.tag }}"
+          TAG="${VERSION}"
 
           if gh release view "$TAG" --repo "$ADAPTERS_REPO" >/dev/null 2>&1; then
             gh release edit "$TAG" --repo "$ADAPTERS_REPO" --notes-file release_notes.md
