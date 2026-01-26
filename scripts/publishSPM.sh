@@ -32,8 +32,8 @@ fi
 echo -e "\n${GREEN}Pushing branch to origin/${TARGET_BRANCH}${NC}\n"
 git push origin "HEAD:${TARGET_BRANCH}"
 
-# echo -e "\n${GREEN}Tagging HEAD with '${TAG}' and pushing tag${NC}\n"
-# git tag -f "$TAG"
-# git push origin -f "$TAG"
+echo -e "\n${GREEN}Tagging HEAD with '${TAG}' and pushing tag${NC}\n"
+git tag -f "$TAG"
+git push origin -f "$TAG"
 
 popd >/dev/null

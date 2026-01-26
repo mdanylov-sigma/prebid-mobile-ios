@@ -27,7 +27,7 @@ env:
 
   TARGET_BRANCH: main
   GH_TOKEN_SOURCE: ${{ github.token }}
-  GH_SYNC_TOKEN: ${{ secrets.SYNC_TOKEN }}
+  GH_TOKEN: ${{ secrets.SYNC_TOKEN }}
 
   XCODE_VERSION: "16.4.0"
 
@@ -160,9 +160,15 @@ jobs:
           "adapters" \
           "${{ needs.resolve_version.outputs.version }}" \
           "${{ env.TARGET_BRANCH }}"
+  
   release_notes:
     runs-on: ubuntu-latest
-    needs: [sync_adapters]
+    needs: [resolve_version, sync_adapters]
+    env:
+      VERSION: ${{ needs.resolve_version.outputs.version }}
+      GH_TOKEN_SOURCE: ${{ github.token }}
+      GH_TOKEN_SYNC: ${{ secrets.SYNC_TOKEN }}
+
     steps:
       - name: Checkout PrebidMobile repo
         uses: actions/checkout@v4
@@ -197,39 +203,75 @@ jobs:
         shell: bash
         env:
           GH_TOKEN_SOURCE: ${{ env.GH_TOKEN_SOURCE }}
-          GH_SYNC_TOKEN: ${{ env.GH_SYNC_TOKEN }}
+          GH_TOKEN: ${{ env.GH_TOKEN_SYNC }}
         run: |
           set -euo pipefail
           TAG="${{ steps.tags.outputs.tag }}"
           PREV="${{ steps.tags.outputs.prev_tag }}"
 
-          UPSTREAM_REPO="prebid/prebid-mobile-ios"   # owner/repo
-          TARGET_COMMITISH="master"               # or a commit SHA that exists in upstream
+          UPSTREAM_REPO="prebid/prebid-mobile-ios" # GITHUB_REPOSITORY
+          TARGET_COMMITISH="master"
 
-          gh api "repos/${UPSTREAM_REPO}/releases/generate-notes" \
-            -f tag_name="$TAG" \
-            -f target_commitish="$TARGET_COMMITISH" \
-            -f previous_tag_name="$PREV" \
-            --jq '.body' > release_notes.md
-
-          # # This calls the same generator GitHub uses for "Auto-generate release notes"
-          # # If PREV is empty, omit previous_tag_name.
-          # if [[ -n "$PREV" ]]; then
-          #   gh api "repos/${GITHUB_REPOSITORY}/releases/generate-notes" \
-          #     -f tag_name="$TAG" \
-          #     -f target_commitish="${GITHUB_SHA}" \
-          #     -f previous_tag_name="$PREV" \
-          #     --jq '.body' > release_notes.md
-          # else
-          #   gh api "repos/${GITHUB_REPOSITORY}/releases/generate-notes" \
-          #     -f tag_name="$TAG" \
-          #     -f target_commitish="${GITHUB_SHA}" \
-          #     --jq '.body' > release_notes.md
-          # fi
+          ### This calls the same generator GitHub uses for "Auto-generate release notes"
+          ### If PREV is empty, omit previous_tag_name.
+          if [[ -n "$PREV" ]]; then
+            gh api "repos/${UPSTREAM_REPO}/releases/generate-notes" \
+              -f tag_name="$TAG" \
+              -f target_commitish="${GITHUB_SHA}" \
+              -f previous_tag_name="$PREV" \
+              --jq '.body' > release_notes.md
+          else
+            gh api "repos/${UPSTREAM_REPO}/releases/generate-notes" \
+              -f tag_name="$TAG" \
+              -f target_commitish="${GITHUB_SHA}" \
+              --jq '.body' > release_notes.md
+          fi
 
           echo "----- CHANGELOG -----"
           cat release_notes.md
           echo "---------------------"
+      
+      # - name: Create/Update release in PrebidMobile (source repo)
+      #   shell: bash
+      #   env:
+      #     GH_TOKEN: ${{ env.GH_TOKEN_SOURCE }}
+      #   run: |
+      #     set -euo pipefail
+      #     TAG="${{ steps.tags.outputs.tag }}"
+
+      #     if gh release view "$TAG" >/dev/null 2>&1; then
+      #       gh release edit "$TAG" --notes-file release_notes.md
+      #     else
+      #       gh release create "$TAG" --title "$TAG" --notes-file release_notes.md
+      #     fi
+
+      - name: Create/Update release in PrebidMobile Core SDK repo
+        shell: bash
+        env:
+          GH_TOKEN: ${{ env.GH_TOKEN_SYNC }}
+        run: |
+          set -euo pipefail
+          TAG="${{ steps.tags.outputs.tag }}"
+
+          if gh release view "$TAG" --repo "$CORE_REPO" >/dev/null 2>&1; then
+            gh release edit "$TAG" --repo "$CORE_REPO" --notes-file release_notes.md
+          else
+            gh release create "$TAG" --repo "$CORE_REPO" --title "$TAG" --notes-file release_notes.md
+          fi
+
+      - name: Create/Update release in PrebidMobile Adapters SDK Adapters repo
+        shell: bash
+        env:
+          GH_TOKEN: ${{ env.GH_TOKEN_SYNC }}
+        run: |
+          set -euo pipefail
+          TAG="${{ steps.tags.outputs.tag }}"
+
+          if gh release view "$TAG" --repo "$ADAPTERS_REPO" >/dev/null 2>&1; then
+            gh release edit "$TAG" --repo "$ADAPTERS_REPO" --notes-file release_notes.md
+          else
+            gh release create "$TAG" --repo "$ADAPTERS_REPO" --title "$TAG" --notes-file release_notes.md
+          fi
   build:
     name: Build PrebidMobile SPM demo
     needs: [sync_adapters]
@@ -241,7 +283,7 @@ jobs:
         uses: maxim-lobanov/setup-xcode@v1
         with: 
           xcode-version: ${{ env.XCODE_VERSION }}
-      - name: Build Prebid Mobile Frameworks
+      - name: Build Prebid SPM Demo
         run: ./scripts/buildPrebidSPM.sh
       - name: Upload logs on failure
         if: ${{ failure() }}
