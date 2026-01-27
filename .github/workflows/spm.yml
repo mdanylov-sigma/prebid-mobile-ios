@@ -22,12 +22,12 @@ concurrency:
   cancel-in-progress: false
 
 env:
+  ORG: mdanylov-sigma
   CORE_REPO: mdanylov-sigma/ios-spm
   ADAPTERS_REPO: mdanylov-sigma/ios-adapters-spm
 
   TARGET_BRANCH: main
-  GH_TOKEN_SOURCE: ${{ github.token }}
-  GH_TOKEN: ${{ secrets.SYNC_TOKEN }}
+  GH_TOKEN_PREBID_MOBILE: ${{ github.token }}
 
   XCODE_VERSION: "16.4.0"
 
@@ -85,12 +85,19 @@ jobs:
         with:
           fetch-depth: 0
           path: source
-
+      - name: Create GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.SYNC_APP_ID }}
+          private-key: ${{ secrets.SYNC_APP_PRIVATE_KEY }}
+          owner: ${{ env.ORG }}
+          repositories: ios-spm, ios-adapters-spm
       - name: Checkout target PrebidMobile Core SDK repo
         uses: actions/checkout@v4
         with:
           repository: ${{ env.CORE_REPO }}
-          token: ${{ secrets.SYNC_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
           ref: ${{ env.TARGET_BRANCH }}
           fetch-depth: 0
           path: core
@@ -127,12 +134,19 @@ jobs:
         with:
           fetch-depth: 0
           path: source
-
+      - name: Create GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.SYNC_APP_ID }}
+          private-key: ${{ secrets.SYNC_APP_PRIVATE_KEY }}
+          owner: ${{ env.ORG }}
+          repositories: ios-spm, ios-adapters-spm
       - name: Checkout target PrebidMobile Adapters SDK repo
         uses: actions/checkout@v4
         with:
           repository: ${{ env.ADAPTERS_REPO }}
-          token: ${{ secrets.SYNC_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
           ref: ${{ env.TARGET_BRANCH }}
           fetch-depth: 0
           path: adapters
@@ -166,10 +180,15 @@ jobs:
     needs: [resolve_version, sync_adapters]
     env:
       VERSION: ${{ needs.resolve_version.outputs.version }}
-      GH_TOKEN_SOURCE: ${{ github.token }}
-      GH_TOKEN_SYNC: ${{ secrets.SYNC_TOKEN }}
-
     steps:
+      - name: Create GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.SYNC_APP_ID }}
+          private-key: ${{ secrets.SYNC_APP_PRIVATE_KEY }}
+          owner: ${{ env.ORG }}
+          repositories: ios-spm, ios-adapters-spm
       - name: Checkout PrebidMobile repo
         uses: actions/checkout@v4
         with:
@@ -205,8 +224,7 @@ jobs:
       - name: Generate GitHub "auto-generated release notes"
         shell: bash
         env:
-          GH_TOKEN_SOURCE: ${{ env.GH_TOKEN_SOURCE }}
-          GH_TOKEN: ${{ env.GH_TOKEN_SYNC }}
+          GH_TOKEN: ${{ env.GH_TOKEN_PREBID_MOBILE }}
         run: |
           set -euo pipefail
           TAG="${{ steps.tags.outputs.tag }}"
@@ -234,24 +252,25 @@ jobs:
           cat release_notes.md
           echo "---------------------"
       
-      # - name: Create/Update release in PrebidMobile (source repo)
-      #   shell: bash
-      #   env:
-      #     GH_TOKEN: ${{ env.GH_TOKEN_SOURCE }}
-      #   run: |
-      #     set -euo pipefail
-      #     TAG="${{ steps.tags.outputs.tag }}"
+      - name: Create/Update release in PrebidMobile repo
+        shell: bash
+        env:
+          GH_TOKEN: ${{ env.GH_TOKEN_PREBID_MOBILE }}
+        run: |
+          set -euo pipefail
+          # TAG="${{ steps.tags.outputs.tag }}"
+          TAG="${VERSION}"
 
-      #     if gh release view "$TAG" >/dev/null 2>&1; then
-      #       gh release edit "$TAG" --notes-file release_notes.md
-      #     else
-      #       gh release create "$TAG" --title "$TAG" --notes-file release_notes.md
-      #     fi
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" --notes-file release_notes.md
+          else
+            gh release create "$TAG" --title "$TAG" --notes-file release_notes.md
+          fi
 
       - name: Create/Update release in PrebidMobile Core SDK repo
         shell: bash
         env:
-          GH_TOKEN: ${{ env.GH_TOKEN_SYNC }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           set -euo pipefail
           # TAG="${{ steps.tags.outputs.tag }}"
@@ -266,7 +285,7 @@ jobs:
       - name: Create/Update release in PrebidMobile Adapters SDK Adapters repo
         shell: bash
         env:
-          GH_TOKEN: ${{ env.GH_TOKEN_SYNC }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           set -euo pipefail
           #TAG="${{ steps.tags.outputs.tag }}"
