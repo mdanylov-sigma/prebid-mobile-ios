@@ -224,7 +224,7 @@ jobs:
       - name: Generate GitHub "auto-generated release notes"
         shell: bash
         env:
-          GH_TOKEN: ${{ env.GH_TOKEN_PREBID_MOBILE }}
+          GH_TOKEN: ${{ secrets.TOKEN }}
         run: |
           set -euo pipefail
           TAG="${{ steps.tags.outputs.tag }}"
