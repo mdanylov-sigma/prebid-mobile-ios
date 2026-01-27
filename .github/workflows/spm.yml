@@ -43,37 +43,41 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+                 
+          MIN_VERSION="3.1.0"
 
           ### ONLY x.y.z (no suffix like -carthage)
           semver_re='^[0-9]+\.[0-9]+\.[0-9]+$'
 
-          ### Resolve version for manual workflow
+          version_ge() {
+            # returns 0 if $1 >= $2
+            # works for strict x.y.z
+            printf '%s\n%s\n' "$2" "$1" | sort -V | head -n1 | grep -qx "$2"
+          }
+
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            version="${{ inputs.version }}"
-            if [[ ! "$version" =~ $semver_re ]]; then
-              echo "Version must match x.y.z Got: $version"
-              echo "should_run=false" >> "$GITHUB_OUTPUT"
-              exit 1
-            fi
-            echo "version=$version" >> "$GITHUB_OUTPUT"
-            echo "should_run=true" >> "$GITHUB_OUTPUT"
+            v="${{ inputs.version }}"
+          else
+            v="${{ github.ref_name }}"   # tag name
+          fi
+
+          ### Strict semver check
+          if [[ ! "$v" =~ $semver_re ]]; then
+            echo "Tag '$v' is not strict x.y.z → skipping"
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
-          ### Resolve version for tag
-          if [[ "${{ github.ref_type }}" != "tag" ]]; then
+          ### Minimum version check
+          if ! version_ge "$v" "$MIN_VERSION"; then
+            echo "Version $v < $MIN_VERSION → skipping"
             echo "should_run=false" >> "$GITHUB_OUTPUT"
-            exit 1
+            exit 0
           fi
 
-          tag="${{ github.ref_name }}"  # e.g. 3.2.0 or 3.1.0-carthage
-          if [[ "$tag" =~ $semver_re ]]; then
-            echo "version=$tag" >> "$GITHUB_OUTPUT"
-            echo "should_run=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "Tag '$tag' is not strict x.y.z, skipping."
-            echo "should_run=false" >> "$GITHUB_OUTPUT"
-          fi
+          echo "Version $v >= $MIN_VERSION → running"
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+          echo "should_run=true" >> "$GITHUB_OUTPUT"
 
   sync_core:
     needs: resolve_version
@@ -260,6 +264,8 @@ jobs:
           set -euo pipefail
           # TAG="${{ steps.tags.outputs.tag }}"
           TAG="${VERSION}"
+
+          cd source
 
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release edit "$TAG" --notes-file release_notes.md
