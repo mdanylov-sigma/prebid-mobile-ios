@@ -114,6 +114,7 @@ jobs:
           rsync -a --delete "source/Frameworks/"  "core/Frameworks/"
           rsync -a --delete "source/PrebidMobile/" "core/PrebidMobile/"
           cp -f "source/PrebidMobile/Package.swift" "core/Package.swift"
+          cp -f "source/PrebidMobile/README-SPM.md" "core/README.md"
 
       - name: Commit & tag PrebidMobile Core SDK
         shell: bash
@@ -165,6 +166,7 @@ jobs:
           rsync -a --delete "source/EventHandlers/PrebidMobileGAMEventHandlers/" "adapters/PrebidMobileGAMEventHandlers/"
 
           cp -f "source/EventHandlers/Package.swift" "adapters/Package.swift"
+          cp -f "source/EventHandlers/README-SPM.md" "adapters/README.md"
 
       - name: Commit & tag PrebidMobile Adapters SDK
         shell: bash
