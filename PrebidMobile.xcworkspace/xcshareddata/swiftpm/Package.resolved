@@ -1,5 +1,5 @@
 {
-  "originHash" : "375c0b6c23209a20fce8277cdb9b043b92214465a9fba4b0001e6d8c7b54a92d",
+  "originHash" : "00f24d5a453f63c1f24be7119da3953bf88a0674f8989dd02ffefef99c8a551d",
   "pins" : [
     {
       "identity" : "applovin-max-swift-package",
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mdanylov-sigma/ios-adapters-spm.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "766fea0bb78d4ce993b45e20a4460ae260ce8da0"
+        "revision" : "8f7fb17cda8e314c961e2def53be8ee87e19e1cf",
+        "version" : "3.2.1"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mdanylov-sigma/ios-spm.git",
       "state" : {
-        "revision" : "6a58bbf0cacf5c1a1735576c29dd998650c13830",
-        "version" : "100.0.0"
+        "revision" : "6aad68058753739c44cbb2b6dcf0fbf942e89f56",
+        "version" : "3.2.1"
       }
     },
     {
