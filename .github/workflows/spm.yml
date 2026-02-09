@@ -112,11 +112,11 @@ jobs:
           set -euo pipefail
 
           rsync -a --delete "source/Frameworks/"  "core/Frameworks/"
-          rsync -a --delete \
-            --exclude "source/PrebidMobile/Package.swift" \
-            --exclude "source/PrebidMobile/README-SPM.md" \ 
-            "source/PrebidMobile/" "core/PrebidMobile/"
-          
+          rsync -a --delete "source/PrebidMobile/" "core/PrebidMobile/"
+
+          rm -f "core/PrebidMobile/Package.swift"
+          rm -f "core/PrebidMobile/README-SPM.md"
+
           cp -f "source/PrebidMobile/Package.swift" "core/Package.swift"
           cp -f "source/PrebidMobile/README-SPM.md" "core/README.md"
 
